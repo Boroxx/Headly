@@ -19,23 +19,23 @@
         <h3>Hallo Admin, hier können Job-Ausschreibungen hinzugefügt werden!</h3>
 
         <div class="row " style="margin-top:5%">
-            <div class="col-lg-12">
-                <form>
+            <div class="col-lg-12" >
+                <form action="/admin/postJob"  method="post" th:object="${jobPost}" >
                     <div class="form-group">
                         <label for="exampleFormControlInput1"><b>Job-Ausschreibung</b></label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Jobausschreibung">
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="jobname" placeholder="Jobausschreibung">
                       </div>
                     <div class="form-group">
                       <label for="exampleFormControlInput2"><b>Name des Unternehmens</b></label>
-                      <input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Muster GmbH">
+                      <input type="text" class="form-control" id="exampleFormControlInput2" name="companyname" placeholder="Muster GmbH">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1"><b>Job Beschreibung</b></label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="8"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="8"></textarea>
                       </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput3"><b>Email address des Unternehmens</b></label>
-                        <input type="email" class="form-control" id="exampleFormControlInput3" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="exampleFormControlInput3" name="email" placeholder="name@example.com">
                       </div>
 
                     <input class="btn btn-success"  type="submit" name="Post">

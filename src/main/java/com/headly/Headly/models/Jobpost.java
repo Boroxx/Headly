@@ -1,14 +1,22 @@
 package com.headly.Headly.models;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
 @Table
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Jobpost {
 
   @Id
@@ -23,6 +31,7 @@ public class Jobpost {
   private String companyname;
 
   @Column
+  @Lob
   private String description;
 
   @Column
