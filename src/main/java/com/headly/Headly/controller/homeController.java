@@ -11,5 +11,9 @@ public class homeController {
   public String home(){
     return "index.html";
   }
+  @GetMapping("/logout")
+  public String logout(){
+    return "logout.html";
+  }
 }
 
