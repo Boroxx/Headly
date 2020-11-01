@@ -14,13 +14,21 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" href="/">Home</a>
-                <a class="nav-item nav-link" href="#">Für Bewerber</a>
-                <a class="nav-item nav-link" href="#">Für Unternehmen</a>
-                <a class="nav-item nav-link" href="/admin">Admin</a>
+            <ul class="navbar-nav">
+                <li><a class="nav-item nav-link" href="/" sec:authorize="!isAuthenticated()">Home</a></li>
+                <li><a class="nav-item nav-link" href="#" sec:authorize="!isAuthenticated()">Für Bewerber</a></li>
+               <li><a class="nav-item nav-link" sec:authorize="!isAuthenticated()"  href="/company">Für Unternehmen</a></li>
+                <li><a class="nav-item nav-link"sec:authorize="isAuthenticated()" href="/admin">Dashboard</a></li>
 
-            </div>
+
+
+
+
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class=""><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/login" >Login</a></li>
+                <li class=""><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/logout" >Logout</a></li>
+            </ul>
         </div>
     </nav>
 </body>

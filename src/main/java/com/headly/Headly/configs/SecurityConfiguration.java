@@ -29,16 +29,16 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   protected void configure(HttpSecurity http) throws Exception {
     http.cors().and().csrf().disable();
     http.authorizeRequests().antMatchers("/").permitAll()
-            .antMatchers("/admin/**").hasAnyRole("ADMIN")
-            .antMatchers("/admin/").hasAnyRole("ADMIN")
-            .antMatchers("/admin").hasAnyRole("ADMIN")
+            .antMatchers("/admin/**").hasAnyRole("UNTERNEHMEN")
+            .antMatchers("/admin/").hasAnyRole("UNTERNEHMEN")
+            .antMatchers("/admin").hasAnyRole("UNTERNEHMEN")
 
 
-            .and().formLogin();
+            .and().formLogin().loginPage("/login").defaultSuccessUrl("/admin");;
 
 
     http.logout().deleteCookies("remove").invalidateHttpSession(false)
-            .logoutUrl("/logout").logoutSuccessUrl("/logout");
+            .logoutUrl("/logout").logoutSuccessUrl("/");
   }
 
   @Override

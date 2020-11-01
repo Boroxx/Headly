@@ -26,10 +26,10 @@ public class User {
   private String email;
   private String contactperson;
   private String street;
-  private int housenumber;
-  private int zipcode;
+  private String housenumber;
+  private String zipcode;
   private String city;
-  private long phonenumber;
+  private String phonenumber;
   private String password;
   private String role;
 

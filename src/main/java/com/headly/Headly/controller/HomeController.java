@@ -28,11 +28,22 @@ public class HomeController {
   public String admin(){
     return "admin";
   }
+
   @GetMapping("/logout")
   public String logout(){
     return "logout";
   }
 
+  @GetMapping("/company")
+  public String company(){
+    return"company";
+
+  }
+  @GetMapping("/login")
+  public String login(){
+    return "login";
+
+  }
   @PostMapping("/admin/postJob")
   public String makePost(@ModelAttribute Jobpost jobPost){
     postingService.registerPost(jobPost);

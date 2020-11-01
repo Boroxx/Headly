@@ -24,6 +24,7 @@ public class RegistrationService {
 
     String pass =  bCryptPasswordEncoder.encode(user.getPassword());
     user.setPassword(pass);
+    user.setRole("ROLE_UNTERNEHMEN");
 
     userRepository.save(user);
     return new User();
