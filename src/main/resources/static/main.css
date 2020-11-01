@@ -3,7 +3,7 @@ body, html {
 }
 .bg {
     /* The image used */
-    background-image: url("/background.jpg");
+    background-image: url("/background_mac.jpg");
 
     /* Full height */
     height: 100%;
@@ -12,4 +12,20 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.home_slogan_left{
+     background-color: grey;
+    font-size: x-large;
+     background: rgba(0,0,0,.5);
+     color:white;
+     border-radius: 0px 20px 20px 0px;"
+ }
+
+.home_slogan_right{
+    background-color: grey;
+    font-size: x-large;
+    background: rgba(0,0,0,.5);
+    color:white;
+    border-radius: 20px 0px 0px 20px;"
 }
