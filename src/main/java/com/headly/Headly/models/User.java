@@ -12,7 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="user", schema = "headly")
+@Table(name="user")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
