@@ -47,8 +47,9 @@
      </div>
 
 
-        <div class="container-fluid pt-5 pl-5">
-        <h3> Stellenausschreibungen: </h3>
+        <div class="container justify-content-center" style="margin-top: 10%;margin-bottom: 10%">
+
+        <h3> Hier finden Sie Stellenausschreibungen: </h3>
         <div class="row">
             <div class="col-lg-6" th:each="jobpost: ${jobposts}" style="margin-top: 5%">
                 <div class="card mb-5">
@@ -56,12 +57,13 @@
                         <h5 class="card-title"><span th:text="${jobpost.jobname}"></span></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span th:text="${jobpost.companyname}"></span></h6>
                         <p class="card-text"><span th:text="${jobpost.description}"></span></p>
-                        <a href="#" class="btn btn-success">Zum Job</a>
-                        <a href="#" class="btn btn-success">Kontakt</a>
+
                     </div>
                 </div>
             </div>
         </div>
+
+
         </div>
 
     <script>

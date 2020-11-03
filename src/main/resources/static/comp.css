@@ -1,0 +1,42 @@
+body, html {
+    height: 100%;
+}
+.bg {
+    /* The image used */
+    background-image: url("/background_companies2.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.home_slogan_left{
+     background-color: grey;
+    font-size: x-large;
+     background: rgba(0,0,0,.5);
+
+     color:white ;
+ }
+
+.home_slogan_right{
+    background-color: grey;
+    font-size: x-large;
+    background: rgba(0,0,0,.5);
+    color:white;
+}
+
+.abstand li{
+    padding-top: 5%;
+    list-style-type: none;
+
+
+}
+.abstand li i{
+    margin-right: 10%;
+
+
+}

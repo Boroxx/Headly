@@ -24,6 +24,8 @@ public class Jobpost {
   @Column
   private int id;
 
+  private int userid;
+
   @Column
   private String jobname;
 

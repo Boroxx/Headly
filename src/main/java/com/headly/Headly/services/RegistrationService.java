@@ -30,4 +30,12 @@ public class RegistrationService {
     return new User();
   }
 
+    public int findUserIdByUsername(String username) {
+    return userRepository.findByEmail(username).getId();
+
+  }
+
+  public User findUserById(String username){
+    return userRepository.findByEmail(username);
+  }
 }

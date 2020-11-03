@@ -1,8 +1,13 @@
 package com.headly.Headly.controller;
 
 import com.headly.Headly.models.Jobpost;
+import com.headly.Headly.models.User;
 import com.headly.Headly.services.PostingService;
+import com.headly.Headly.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +21,9 @@ public class HomeController {
 
   @Autowired
   PostingService postingService;
+
+  @Autowired
+  RegistrationService registrationService;
 
   @GetMapping("/")
   public String home(Model model){
@@ -42,6 +50,28 @@ public class HomeController {
   @GetMapping("/login")
   public String login(){
     return "login";
+
+  }
+
+  @GetMapping("/ausschreibungen")
+  public String ausschreibungen(Model model){
+
+
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    String username = ((UserDetails)auth.getPrincipal()).getUsername();
+
+     User user = registrationService.findUserById(username);
+
+     int id = user.getId();
+     List<Jobpost> jobPosts = postingService.loadAllJobsById(id);
+     model.addAttribute("jobposts",jobPosts);
+     model.addAttribute("contactperson", user.getContactperson());
+
+
+
+
+
+    return "ausschreibungen";
 
   }
   @PostMapping("/admin/postJob")
