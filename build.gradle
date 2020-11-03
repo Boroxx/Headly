@@ -6,7 +6,9 @@ plugins {
 
 group = 'com.headly'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '12'
+
+sourceCompatibility = 1.11
+targetCompatibility = 1.11
 
 configurations {
 	compileOnly {
