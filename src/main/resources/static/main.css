@@ -20,6 +20,7 @@ body, html {
      background: rgba(0,0,0,.5);
      color:white;
      border-radius: 0px 20px 20px 0px;"
+
  }
 
 .home_slogan_right{
@@ -28,4 +29,43 @@ body, html {
     background: rgba(0,0,0,.5);
     color:white;
     border-radius: 20px 0px 0px 20px;"
+}
+@media (max-width: 575.98px) {
+    .home_slogan_left{
+        background-color: grey;
+        font-size: medium;
+        background: rgba(0,0,0,.5);
+        color:white;
+        border-radius: 0px 20px 20px 0px;"
+
+    }
+}
+
+@media (max-width: 575.98px) {
+    .home_slogan_right{
+        background-color: grey;
+        font-size: medium;
+        background: rgba(0,0,0,.5);
+        color:white;
+        border-radius: 0px 20px 20px 0px;"
+
+    }
+}
+.scroll {
+    visibility: hidden;
+
+}
+.scroll-right{
+    visibility: hidden;
+}
+
+.scroll-left{
+    visibility: hidden;
+}
+
+.tripel{
+    margin-top: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    border: none;
 }

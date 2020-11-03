@@ -16,7 +16,7 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <ul class="navbar-nav">
                 <li><a class="nav-item nav-link" href="/" sec:authorize="!isAuthenticated()">Home</a></li>
-                <li><a class="nav-item nav-link" href="#" sec:authorize="!isAuthenticated()">Für Bewerber</a></li>
+                <li><a class="nav-item nav-link" href="/applicants" sec:authorize="!isAuthenticated()">Für Bewerber</a></li>
                <li><a class="nav-item nav-link" sec:authorize="!isAuthenticated()"  href="/company">Für Unternehmen</a></li>
                 <li><a class="nav-item nav-link"sec:authorize="isAuthenticated()" href="/ausschreibungen">Meine Ausschreibungen</a></li>
                 <li><a class="nav-item nav-link"sec:authorize="isAuthenticated()" href="/admin">Dashboard</a></li>
