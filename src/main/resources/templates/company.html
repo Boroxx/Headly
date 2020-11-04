@@ -15,7 +15,7 @@
 
 <body>
 <div th:replace="fragmentheader :: header">...</div>
-<div class="bg" >
+<div class="bg scroll" >
 
 
     <div class="row m-0" >
@@ -49,7 +49,7 @@
 
 
 
-        <div class="container scrollbottom" style="margin-top: 15%;margin-bottom:15%">
+        <div class="container scrollbottom scroll" style="margin-top: 15%;margin-bottom:15%">
             <h1  class="display-4 mb-4">Headly - Philosophie</h1>
             <p class="lead"> Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. <br>
             At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
@@ -58,7 +58,7 @@
         </div>
 
 <div  style="background-color: gainsboro; padding-top: 10%"  >
-<div class="row mt-5 mr-0" >
+<div class="row scroll mt-5 mr-0" >
     <div class="col-sm-4 mt-3">
                 <div class="text-center">
 
@@ -96,7 +96,7 @@
 
     <div class="col-sm-12 ">
 
-                <div class="text-center">
+                <div class="text-center scroll-up">
 
                     <hr style="width:50%;margin-top: 5%">
 
@@ -118,9 +118,12 @@
 
 
 </div>
+<script>
+    ScrollReveal().reveal('.scroll', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
+    ScrollReveal().reveal('.scroll-up', {delay: 300, duration: 2000, origin: 'bottom', distance: '120px'});
 
-
-
+ScrollReveal().reveal('.bg', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
+</script>
 
 
 

@@ -27,14 +27,14 @@ public class HomeController {
 
   @GetMapping("/")
   public String home(Model model){
-
+    List<Jobpost> jobposts = postingService.loadAllJobs();
+    model.addAttribute("jobposts", jobposts);
     return "index";
   }
 
   @GetMapping("/applicants")
   public String applicants(Model model){
-    List<Jobpost> jobposts = postingService.loadAllJobs();
-    model.addAttribute("jobposts", jobposts);
+
     return "applicants";
 
   }
