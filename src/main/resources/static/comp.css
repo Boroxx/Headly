@@ -18,9 +18,21 @@ body, html {
      background-color: grey;
     font-size: x-large;
      background: rgba(0,0,0,.5);
-
      color:white ;
  }
+
+@media (max-width: 575.98px) {
+
+    .home_slogan_left{
+
+        background-color: grey;
+        font-size: large;
+        background: rgba(0,0,0,0.4);
+
+        color:white ;
+    }
+}
+
 
 .home_slogan_right{
     background-color: grey;
@@ -35,8 +47,7 @@ body, html {
 
 
 }
-.abstand li i{
-    margin-right: 10%;
-
-
+.tripel{
+    margin-top: 10%;
+    border: none;
 }

@@ -38,6 +38,9 @@ public class PostingService {
 
   }
 
+  public Jobpost findById(int id){
+    return jobPostRepository.findById(id);
+  }
   public List<Jobpost> loadAllJobs(){
     return jobPostRepository.findAll();
   }
