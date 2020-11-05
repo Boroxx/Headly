@@ -1,8 +1,10 @@
 package com.headly.Headly;
 
 import com.headly.Headly.models.Jobpost;
+import com.headly.Headly.models.Profession;
 import com.headly.Headly.models.User;
 import com.headly.Headly.services.PostingService;
+import com.headly.Headly.services.ProfessionService;
 import com.headly.Headly.services.RegistrationService;
 import lombok.Builder;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class HeadlyApplication implements CommandLineRunner {
 	PostingService postingService;
 
 	@Autowired
+	ProfessionService professionService;
+
+	@Autowired
 	RegistrationService registrationService;
 	public static void main(String[] args) {
 		SpringApplication.run(HeadlyApplication.class, args);
@@ -26,17 +31,23 @@ public class HeadlyApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-			if(postingService.findById(1)==null){
-				postingService.registerPost(new Jobpost(1,1,"Software Entwickler IoT (m/w/d)","INNEO Solutions GmbH","Wir suchen Sie, wenn Sie eine besondere Leidenschaft für Technik spüren!\n" +
-								"\n" +
-								"Sie möchten Unternehmen helfen, optimale Lösungen zu fi nden? Der Schlüssel liegt im freien Denken. Wenn Sie Freude an Kreativität und Innovation haben, und Ihnen ein \"das haben wir immer so gemacht\" ein Greuel ist, dann bewerben Sie sich jetzt für einen unserer zehn Standorte in Deutschland als Software Entwickler IoT (m/w/d)","inneo@gmbh.de"));
 
-			}
 
 			User user = User.builder().city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
 							.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
 
 			User u = registrationService.findUserById(user.getEmail());
 			if(u==null) registrationService.registerNewAccount(user);
+
+		Profession profession1 = new Profession(1,"Bauwesen");
+		Profession profession2 = new Profession(2,"Dienstleistung");
+		Profession profession3 = new Profession(3,"Elektro");
+		Profession profession4 = new Profession(4,"Gesundheit");
+
+		professionService.registerProfession(profession1);
+		professionService.registerProfession(profession2);
+		professionService.registerProfession(profession3);
+		professionService.registerProfession(profession4);
+
 	}
 }

@@ -1,8 +1,10 @@
 package com.headly.Headly.controller;
 
 import com.headly.Headly.models.Jobpost;
+import com.headly.Headly.models.Profession;
 import com.headly.Headly.models.User;
 import com.headly.Headly.services.PostingService;
+import com.headly.Headly.services.ProfessionService;
 import com.headly.Headly.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
@@ -25,6 +27,8 @@ public class HomeController {
   @Autowired
   RegistrationService registrationService;
 
+  @Autowired
+  ProfessionService professionService;
   @GetMapping("/")
   public String home(Model model){
     List<Jobpost> jobposts = postingService.loadAllJobs();
@@ -39,7 +43,10 @@ public class HomeController {
 
   }
   @GetMapping("/admin")
-  public String admin(){
+  public String admin(Model model){
+    List<Profession> professions = professionService.getAllProfessions();
+    model.addAttribute("jobPost", new Jobpost());
+    model.addAttribute("professions", professions);
     return "admin";
   }
 

@@ -18,7 +18,7 @@
     <div th:replace="fragmentheader :: header">...</div>
 
 
-    <div class="bg scroll">
+    <div class="bg background-reveal">
 
         <div class="pt-1">
         <div class="d-flex flex-row" style="margin-bottom: 10%">
@@ -139,8 +139,9 @@
                 <div class="card cardStellen mb-5">
                     <div class="card-body">
                         <h5 class="card-title"><span th:text="${jobpost.jobname}"></span></h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span th:text="${jobpost.companyname}"></span></h6>
+
                         <p class="card-text"><span th:text="${jobpost.description}"></span></p>
+                        <a class="btn btn-dark" th:href="@{'/jobdetails/'+ ${jobpost.id} }" >Zum Job</a>
 
                     </div>
                 </div>
@@ -152,6 +153,7 @@
 
 
 
+    <div th:replace="fragmentfooter :: footer">...</div>
 
 
     <script>
@@ -163,6 +165,7 @@
 
 
     </script>
+
 
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>

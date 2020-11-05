@@ -3,6 +3,7 @@ package com.headly.Headly.models;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,6 +12,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.time.LocalDateTime;
+import java.util.Date;
+
 
 @Entity
 @Table
@@ -26,18 +32,24 @@ public class Jobpost {
 
   private int userid;
 
+
+  @CreationTimestamp
+  private LocalDateTime createDateTime;
   @Column
   private String jobname;
 
-  @Column
-  private String companyname;
+  private String profession;
+
+  private String salary;
+
+  private String location;
+  //Type of Employment
+  private String toe;
 
   @Column
   @Lob
   private String description;
 
-  @Column
-  private String email;
 
 
 }

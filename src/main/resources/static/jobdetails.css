@@ -1,0 +1,43 @@
+
+.title{
+
+    margin: 2rem 0 4rem 2rem ;
+}
+.subtitle{
+    font-size: xx-large;
+    padding: 1rem 0 0 0;
+}
+
+
+.modal-summary{
+    background-color: gainsboro;
+    border-radius: 0;
+    padding: 0 3rem 0rem 3rem;
+    margin: 0 0 11rem 0;
+}
+
+.modal-first-section{
+    font-size: x-large;
+    padding: 1rem 0 2rem 1rem;
+}
+.modal-second-section {
+    font-size: x-large;
+    padding: 0.5rem 0 2rem 1rem;
+
+}
+.undecorated{
+    list-style-type: none;
+
+}
+.remove-margin{
+    padding: 0 8rem 0 3rem;
+}
+.undecorated li{
+    padding: 1rem 0 0 0;
+
+}
+
+.verticalicons{
+   vertical-align: middle;
+}
+

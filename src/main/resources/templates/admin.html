@@ -11,33 +11,54 @@
     <title>Headly - Overview</title>
 </head>
 
-<body>
+<body style="background-color: gainsboro;">
 
     <div th:replace="fragmentheader :: header">...</div>
 
-    <div style="border: 1px solid lightgrey" class="container p-3 mt-5">
+    <div style="background-color: whitesmoke;border: 0 solid lightgrey" class="container p-3 mt-5 mb-5">
 
         <h3>Hallo , hier können Job-Ausschreibungen hinzugefügt werden!</h3>
+
+        <hr>
 
         <div class="row " style="margin-top:5%">
             <div class="col-lg-12" >
                 <form action="/admin/postJob"  method="post" th:object="${jobPost}" >
                     <div class="form-group">
-                        <label for="exampleFormControlInput1"><b>Job-Ausschreibung</b></label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" name="jobname" placeholder="Jobausschreibung">
+                        <label for="exampleFormControlInput1"><b>Job-Ausschreibung-Titel:</b></label>
+                        <input type="text" class="form-control" id="exampleFormControlInput1" name="jobname" placeholder="(Elektriker(m/w/d)">
                       </div>
                     <div class="form-group">
-                      <label for="exampleFormControlInput2"><b>Name des Unternehmens</b></label>
-                      <input type="text" class="form-control" id="exampleFormControlInput2" name="companyname" placeholder="Muster GmbH">
+                        <label for="sel1"><b>Berufsfeld:</b></label>
+                        <select class="form-control" th:field="*{profession}" id="sel1">
+                            <option th:each="profession : ${professions}" th:value="${profession.professionname}" th:text="${profession.professionname}"></option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput4"><b>Gehalt pro Jahr</b></label>
+                        <input type="text" class="form-control" id="exampleFormControlInput4" name="salary" placeholder="50000 Euro ">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlInput5"><b>Standort</b></label>
+                        <input type="text" class="form-control" id="exampleFormControlInput5" name="location" placeholder="Berlin">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlTextarea1"><b>Job Beschreibung</b></label>
                         <textarea class="form-control" id="exampleFormControlTextarea1" name="description" rows="8"></textarea>
                       </div>
+
                     <div class="form-group">
-                        <label for="exampleFormControlInput3"><b>Email address des Unternehmens</b></label>
-                        <input type="email" class="form-control" id="exampleFormControlInput3" name="email" placeholder="name@example.com">
-                      </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="option1" name="option1" class="custom-control-input" value="Vollzeit" th:field="*{toe}">
+                            <label class="custom-control-label" for="option1">Vollzeit</label>
+                        </div>
+                        <div class="custom-control custom-radio custom-control-inline">
+                            <input type="radio" id="option2" name="option2" class="custom-control-input" value="Teilzeit" th:field="*{toe}">
+                            <label class="custom-control-label" for="option2">Teilzeit</label>
+                        </div>
+                    </div>
+
+
 
                     <input class="btn btn-success"  type="submit" name="Post">
                   </form>
