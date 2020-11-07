@@ -9,4 +9,5 @@ import java.util.List;
 public interface JobPostRepository extends JpaRepository<Jobpost,Long> {
   List<Jobpost> findAllByUserid(int id);
   Jobpost findById(int id);
+  List<Jobpost> findAllByJobnameIsContaining(String s);
 }

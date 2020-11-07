@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/search.css">
+    <link rel="stylesheet" href="/all.css">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+
+    <title>Headly - Bewerber</title>
+</head>
+<body>
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top" th:fragment="header">
+    <a class="navbar-brand" href="/"><i class="far fa-comments"></i> HEADLY</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <ul class="navbar-nav">
+            <li><a class="nav-item nav-link" href="/" sec:authorize="!isAuthenticated()">Home</a></li>
+            <li><a class="nav-item nav-link" href="/applicants" sec:authorize="!isAuthenticated()">Für Bewerber</a></li>
+            <li><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/company">Für Unternehmen</a></li>
+            <li><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/ausschreibungen">Meine
+                Ausschreibungen</a></li>
+            <li><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/admin">Dashboard</a></li>
+
+
+        </ul>
+        <ul class="navbar-nav ml-auto">
+            <li class=""><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/login">Login</a></li>
+            <li class=""><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/logout">Logout</a></li>
+        </ul>
+    </div>
+</nav>
+
+
+<div class="container-fluid bg p-5">
+
+    <div class="row mt-5 mb-5">
+        <div class=" col-sm-12 col-lg-12 ">
+            <h1>Stellenausschreibungen</h1>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-8 col-lg-8 ">
+            <div class="my-5">
+                <form method="post" action="/search" th:object="${searchDto}">
+                <div class="input-group">
+
+
+                    <input class="form-control" type="search" placeholder="Traumberuf finden!" name="subString" aria-label="Search">
+                    <div class="input-group-append">
+                        <button class="btn btn-success" type="submit">Los gehts!</button>
+                    </div>
+
+
+                </div>
+                </form>
+                <small><i>Hier können Sie nach Schlagwörtern, einer Branche oder direkt ihrem Beruf suchen!</i></small>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row ">
+
+        <div class="col-sm-12 col-lg-4 " th:each="search: ${searchList}">
+
+            <div class="flip-div">
+                <div class="flip-inner">
+
+                    <div class="flip-front">
+
+                        <h1 th:text="${search.jobname}"></h1>
+
+                    </div>
+
+                    <a href="">
+                        <div class="flip-back">
+                            <h3 class="subtitle">Zusammenfassung</h3>
+                            <div class="modal-first-section">
+                                <p><i class="fas fa-location-arrow verticalicons"></i> <b>Standort:</b> <span th:text="${search.location}"></span></p>
+                                <p><i class="fas fa-dollar-sign verticalicons"></i> <b>Gehalt: </b><span th:text="${search.salary}"></span></p>
+                                <p><i class="fas fa-hourglass-half verticalicons"></i><b> Art: </b><span th:text="${search.toe}"> </span></p>
+                            </div>
+
+
+                            <hr>
+                            <div class="modal-second-section">
+                                <p><b>Berufsfeld:</b> <span th:text="${search.profession}"></span></p>
+                                <p><b>Job-ID:</b> <span th:text="${search.id}"></span></p>
+
+
+                            </div>
+
+
+                        </div>
+                    </a>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+
+<div th:replace="fragmentfooter :: footer">...</div>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>

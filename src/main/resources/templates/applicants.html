@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/all.css">
     <script src="https://unpkg.com/scrollreveal"></script>
 
+
     <title>Headly - Bewerber</title>
 </head>
 
@@ -19,43 +20,26 @@
     <div class="d-flex justify-content-center mb-4 " style="margin-bottom: 10%" >
         <div class="scroll mt-5 mr-5 p-5 home_slogan_left">
             <p>
-                Du suchst nach deinem Studium einen schnellen Einstieg in das Arbeitsleben? Wir von Headly machen es möglich!<br>
-                Wir suchen für dich ein passendes Unternehmen, indem du dich wohl fühlen kannst.
+                Du hast gerade dein Studium oder deine Ausbildung abgeschlossen oder du bist kurz davor?<br>
+                Wir helfen dir dabei deinen Traumjob zu finden. Deine Vorteile:
+
+                Hallo
             </p>
 
             <ul class="abstand">
-                <li><i class="fas fa-2x fa-chart-line" style="color: white"></i> <span>Täglich wachsender Bewerber-Pool</span></li>
-                <li><i class="fas fa-2x fa-coins" style="color: white"></i> <span>Kostengünstige Vermittlung</span></li>
-                <li><i class="fas fa-2x fa-tachometer-alt" style="color: white"></i> <span>Schnelle Stellenbesetzung</span></li>
+                <li><i class="fas fa-2x fa-smile" style="color: white;vertical-align: middle"></i> <span>Angenehme Jobsuche - such’ dir eine Stelle aus, lade Deinen Lebenslauf hoch und wir kümmern uns um den Rest.</span></li>
+                <li><i class="fas fa-2x fa-thumbtack" style="color: white;vertical-align: middle"></i> <span>Wir sind spezialisiert auf die Stellenbesetzung in Mönchengladbach und Umgebung.</span></li>
+                <li><i class="fas fa-2x fa-euro-sign" style="color: white;vertical-align: middle"></i> <span>Du siehst schon vor der Bewerbung dein zukünftiges Gehalt.</span></li>
             </ul>
+
+            <p><a style="color: white!important" href="#">Jetzt kostenlos registrieren</a>.</p>
             <br>
             <br>
             <br>
             <br>
-            <a class="btn btn-light" href="/companyregistration" style="color: grey !important;font-size: x-large" >Hier Registrieren!</a>
         </div>
 
     </div>
-</div>
-
-
-<div class="container justify-content-center" style="margin-top: 10%;margin-bottom: 10%">
-
-    <h3> Hier finden Sie Stellenausschreibungen: </h3>
-    <div class="row">
-        <div class="col-lg-6" th:each="jobpost: ${jobposts}" style="margin-top: 5%">
-            <div class="card mb-5">
-                <div class="card-body">
-                    <h5 class="card-title"><span th:text="${jobpost.jobname}"></span></h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span th:text="${jobpost.companyname}"></span></h6>
-                    <p class="card-text"><span th:text="${jobpost.description}"></span></p>
-
-                </div>
-            </div>
-        </div>
-    </div>
-
-
 </div>
 
 
