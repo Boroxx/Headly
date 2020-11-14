@@ -1,0 +1,33 @@
+.bg {
+    /* The image used */
+    background-image: url("/registration_background.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    padding: 5rem;
+}
+
+
+
+.formdesign{
+    background-color: white;
+    background:rgba(255,255,255, 0.9);
+    padding: 1rem;
+
+}
+
+h1{
+    font-family: 'Marvel', sans-serif;
+
+}
+
+.custom-control-label{
+    font-size: 1.2rem;
+}

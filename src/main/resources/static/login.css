@@ -1,21 +1,42 @@
-.loginform{
-    margin: 10% 20% 10% 20%;
-    padding: 10% 1% 10% 1%;
-    background-color: lightgrey;
+body, html {
+    height: 100%;
 
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.bg {
+    /* The image used */
+    background-image: url("/registration_background.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    padding: 10rem;
+}
+
+.loginform{
+
+    box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.2);
     border-width: 1px;
+    background:  rgba(255, 255, 255, 0.9);
+    padding: 6rem;
+    font-family: 'Marvel', sans-serif;
+
+
 
 }
 
+
 @media (max-width: 575.98px) {
     .loginform{
-        margin: 10% 5% 10% 5%;
-        padding: 10% 1% 30% 1%;
-        background-color: lightgrey;
+        background-color: white;
+        background:  rgba(255, 255, 255, 0.8);
+        box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.8);
 
-        box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-        border-width: 1px;
 
     }
 

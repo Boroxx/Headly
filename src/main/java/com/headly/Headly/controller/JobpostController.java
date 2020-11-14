@@ -20,8 +20,11 @@ public class JobpostController {
     if(jobpost!=null){
       model.addAttribute("jobpost",jobpost);
     }
-
-
     return"jobdetails";
+  }
+
+  @GetMapping()
+  public String roleCheck(){
+    return "";
   }
 }

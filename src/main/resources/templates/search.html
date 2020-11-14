@@ -26,14 +26,15 @@
         <ul class="navbar-nav">
             <li><a class="nav-item nav-link" href="/" sec:authorize="!isAuthenticated()">Home</a></li>
             <li><a class="nav-item nav-link" href="/applicants" sec:authorize="!isAuthenticated()">Für Bewerber</a></li>
-            <li><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/company">Für Unternehmen</a></li>
-            <li><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/ausschreibungen">Meine
-                Ausschreibungen</a></li>
-            <li><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/admin">Dashboard</a></li>
+            <li><a class="nav-item nav-link" sec:authorize="!isAuthenticated()"  href="/company">Für Unternehmen</a></li>
+            <li><a class="nav-item nav-link"sec:authorize="!isAuthenticated()" href="/search">Jobsuche</a></li>
+            <li><a class="nav-item nav-link"sec:authorize="isAuthenticated()" href="/ausschreibungen">Meine Ausschreibungen</a></li>
+            <li><a class="nav-item nav-link"sec:authorize="isAuthenticated()" href="/admin">Dashboard</a></li>
 
 
         </ul>
         <ul class="navbar-nav ml-auto">
+            <li class=""><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/companyregistration">Registrierung</a></li>
             <li class=""><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/login">Login</a></li>
             <li class=""><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/logout">Logout</a></li>
         </ul>
@@ -42,14 +43,10 @@
 
 
 <div class="container-fluid bg p-5">
+    <div class="formdesign py-5">
 
-    <div class="row mt-5 mb-5">
-        <div class=" col-sm-12 col-lg-12 ">
-            <h1>Stellenausschreibungen</h1>
+        <h1>Jobsuche</h1>
 
-
-        </div>
-    </div>
 
     <div class="row">
         <div class="col-sm-8 col-lg-8 ">
@@ -75,14 +72,12 @@
         </div>
     </div>
 
+    </div>
+</div>
+
+<div class="container-fluid  py-5 jobmodulecontainer">
     <div class="row ">
-        <div class="col-sm-12 col-lg-12 ">
-            <h3>Aktuell:</h3>
-            <hr>
-        </div>
-
-
-        <div class="col-sm-12 col-lg-4 " th:each="search: ${searchList}">
+        <div class="col-sm-12 col-lg-4 p-5" th:each="search: ${searchList}">
 
             <div class="flip-div">
                 <div class="flip-inner">
@@ -108,8 +103,9 @@
                                 <p><b>Berufsfeld:</b> <span th:text="${search.profession}"></span></p>
                                 <p><b>Job-ID:</b> <span th:text="${search.id}"></span></p>
 
-
                             </div>
+
+
 
 
                         </div>
@@ -123,8 +119,8 @@
     </div>
 
 
-
 </div>
+
 
 <div th:replace="fragmentfooter :: footer">...</div>
 

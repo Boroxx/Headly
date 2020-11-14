@@ -1,5 +1,22 @@
-.bg{
-    background-color:gainsboro;
+.bg {
+    /* The image used */
+    background-image: url("/search_background.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+
+.formdesign{
+    background-color: white;
+    background:rgba(255,255,255, 0.9);
+    padding: 1rem;
+
 }
 .searchbar{
 
@@ -18,6 +35,9 @@
 }
 
 
+.jobmodulecontainer{
+
+}
 .searchbar:hover{
 
     background-color: rgb(210, 224, 202);
@@ -67,15 +87,17 @@
     color: black !important;
     text-decoration: none; 
   }
+
   .flip-front{
     width: 100%;
     height: 100%;
       text-align: center;
-      background-color: white;
+      background-color: #292b2c;
+      color:white !important;
   }
 
   .flip-front h1{
-    color:black;
+    color:white;
     margin-top: 40%;
   }
 
@@ -89,8 +111,8 @@
   }
   .flip-back {
 
-    background-color: white;
-    color: black !important;
+    background-color: #292b2c;
+    color: white !important;
     text-decoration: none; 
     transform: rotateY(180deg);
     padding: 2rem 0 0 2rem;

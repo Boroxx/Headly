@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TemplateError {
+public class TemplateLogger {
   public String error;
   public boolean exists;
 

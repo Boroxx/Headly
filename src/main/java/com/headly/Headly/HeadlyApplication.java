@@ -12,6 +12,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 @SpringBootApplication
@@ -48,6 +50,16 @@ public class HeadlyApplication implements CommandLineRunner {
 		professionService.registerProfession(profession2);
 		professionService.registerProfession(profession3);
 		professionService.registerProfession(profession4);
+
+
+		List<Jobpost> jobposts = new ArrayList<>();
+		for(int i= 1; i< 10; i++){
+			jobposts.add(new Jobpost(i,1,null,"Elektriker" + i, "Bauwesen","45000 - 5000 Euro", "Ort" + i,"Vollzeit","Beschreibung" + i));
+		}
+
+		for (Jobpost jobpost : jobposts) {
+			postingService.registerPost(jobpost);
+		}
 
 	}
 }

@@ -1,7 +1,6 @@
 package com.headly.Headly.controller;
 
-import com.headly.Headly.ErrorHandling.TemplateError;
-import com.headly.Headly.models.Jobpost;
+import com.headly.Headly.ErrorHandling.TemplateLogger;
 import com.headly.Headly.models.User;
 import com.headly.Headly.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +23,8 @@ public class RegistrationController {
     model.addAttribute("user",new User());
 
     //deep copy
-    TemplateError err = registrationService.getTemplateError();
-    TemplateError error = new TemplateError(err.error,err.exists);
+    TemplateLogger err = registrationService.getTemplateLogger();
+    TemplateLogger error = new TemplateLogger(err.error,err.exists);
     model.addAttribute("error", error);
     registrationService.resetTemplateError();
     return"registration";
