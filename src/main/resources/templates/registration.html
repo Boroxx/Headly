@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
   <link rel="stylesheet" href="/all.css">
   <link rel="stylesheet" href="/registration.css">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 </head>
 
 <body>
@@ -16,41 +17,94 @@
 
   <div class=" d-flex justify-content-center" style="margin-top:10%; margin-left:50%;margin-bottom: 0 !important;">
 
-
-    <form action="/companyregistration" method="post" th:object="${user}">
+    <form action="/companyregistration" method="post" th:object="${user}" class="needs-validation" novalidate>
       <div class="form-row">
         <img src="headly_logo_new_200_60.png" alt="headly logo">
+      </div>
+
+      <div class="form-group">
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio" onclick="toggleApplicant()" id="option2" name="option2" class="custom-control-input" value="Bewerber" th:field="*{role}">
+          <label class="custom-control-label" for="option2">Bewerber (Absolvent, Privatperson , etc..)</label>
+        </div>
+
+        <div class="custom-control custom-radio custom-control-inline">
+          <input type="radio"  onclick="toggleCompany()" id="option1" name="option1" class="custom-control-input" value="Unternehmen" th:field="*{role}">
+          <label class="custom-control-label" for="option1">Unternehmen</label>
+        </div>
+
       </div>
 
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputEmail">Email</label>
-          <input type="email" class="form-control" id="inputEmail" th:field="*{email}">
+          <input type="email" class="form-control" id="inputEmail" th:field="*{email}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie eine Email ein!
+          </div>
         </div>
         <div class="form-group col-md-6">
           <label for="inputPassword">Passwort</label>
-          <input type="password" class="form-control" id="inputPassword" th:field="*{password}">
+          <input type="password" class="form-control" id="inputPassword" th:field="*{password}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie ein Passwort ein!
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputCompany">Name des Unternehmens</label>
-        <input type="text" class="form-control" id="inputCompany" placeholder="MusterGmbH" th:field="*{companyname}">
+
       </div>
 
-      <div class="form-group">
+
+      <div class="form-row company">
+      <div class="form-group col-md-12">
+        <label for="inputCompany">Name des Unternehmens</label>
+        <input type="text" class="form-control" id="inputCompany" placeholder="MusterGmbH" th:field="*{companyname}" required>
+        <div class="invalid-feedback">
+          Bitte geben Sie den Namen ihres Unternehmens ein!
+        </div>
+      </div>
+
+      <div class="form-group col-md-12">
         <label for="inputContactPerson">Ansprechpartner</label>
         <input type="text" class="form-control" id="inputContactPerson" placeholder="Herr Mustermann"
-          th:field="*{contactperson}">
+          th:field="*{contactperson}" required >
+        <div class="invalid-feedback">
+          Bitte geben Sie den Ansprechpartner an!
+        </div>
       </div>
+    </div>
+
+      <div class="form-row applicant">
+        <div class="form-group col-md-6">
+          <label for="inputEmail">Vorname</label>
+          <input type="text" class="form-control" id="inputFirstname" th:field="*{firstname}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie ihren Vornamen an!
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <label for="inputPassword">Nachname</label>
+          <input type="text" class="form-control" id="inputLastname" th:field="*{lastname}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie ihren Nachnamen an!
+          </div>
+        </div>
+      </div>
+
       <div class="form-row ">
         <div class="form-group col-md-6">
           <label for="inputAddress">Strasse</label>
-          <input type="text" class="form-control" id="inputAddress" placeholder="" th:field="*{street}">
+          <input type="text" class="form-control" id="inputAddress" placeholder="" th:field="*{street}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie eine Strasse an!
+          </div>
         </div>
 
         <div class="form-group col-md-4">
           <label for="housenumber ">Hausnummer</label>
-          <input type="text" class="form-control" id="housenumber " th:field="*{housenumber}">
+          <input type="text" class="form-control" id="housenumber " th:field="*{housenumber}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie eine Hausnummer an!
+          </div>
         </div>
       </div>
 
@@ -59,25 +113,111 @@
       <div class="form-row">
         <div class="form-group col-md-6">
           <label for="inputCity">Stadt</label>
-          <input type="text" class="form-control" id="inputCity" th:field="*{city}">
+          <input type="text" class="form-control" id="inputCity" th:field="*{city}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie eine Stadt an!
+          </div>
         </div>
 
         <div class="form-group col-md-4">
           <label for="inputZip">Postleitzahl</label>
-          <input type="text" class="form-control" id="inputZip" th:field="*{zipcode}">
+          <input type="text" class="form-control" id="inputZip" th:field="*{zipcode}" required>
+          <div class="invalid-feedback">
+            Bitte geben Sie eine Postleitzahl ein!
+          </div>
         </div>
       </div>
 
       <button type="submit" class="btn btn-primary">Registrieren</button>
+
+      <div class=" mt-2 alert alert-danger" th:if="${error.exists}">
+            <span th:text="${error.error}"></span>
+      </div>
     </form>
   </div>
 
+  <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+      'use strict';
+      window.addEventListener('load', function() {
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.getElementsByClassName('needs-validation');
+        // Loop over them and prevent submission
+        var validation = Array.prototype.filter.call(forms, function(form) {
+          form.addEventListener('submit', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);
+        });
+      }, false);
+    })();
+  </script>
+
+<script >
+
+  radio1 = document.getElementById('option1');
+  radio2= document.getElementById('option2');
+  company_name_field = document.getElementById('inputCompany');
+  contact_person_field = document.getElementById('inputContactPerson');
+
+  $(document).ready(function() {
+    $('.company').hide();
+    $('.applicant').show();
+    $('#radio2').checked =true;
+
+
+  });
+
+    function toggleCompany(){
+      radio1.checked=true;
+      radio2.checked = false;
+      var elements = document.getElementsByTagName("input");
+      for (var ii=0; ii < elements.length; ii++) {
+        if (elements[ii].type == "text" || elements[ii].type == "email") {
+          elements[ii].value = "";
+        }
+      }
+
+      $('.applicant').hide();
+      $('.company').show();
+      $('#inputFirstname').removeAttr('required');
+      $('#inputLastname').removeAttr('required');
+
+      $('#inputCompany').prop('required','true');
+      $('#inputContactPerson').prop('required','true');
+
+    }
+
+  function toggleApplicant(){
+    radio2.checked = true;
+    radio1.checked = false;
+    var elements = document.getElementsByTagName("input");
+    for (var ii=0; ii < elements.length; ii++) {
+      if (elements[ii].type == "text") {
+        elements[ii].value = "";
+      }
+    }
+
+    $('.company').hide();
+    $('.applicant').show();
+    $('#inputCompany').removeAttr('required');
+    $('#inputContactPerson').removeAttr('required');
+    $('#inputFirstname').prop('required','true');
+    $('#inputLastname').prop('required','true');
+
+  }
+
+
+
+</script>
 
 
 
 
-
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>

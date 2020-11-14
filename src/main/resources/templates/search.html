@@ -47,6 +47,7 @@
         <div class=" col-sm-12 col-lg-12 ">
             <h1>Stellenausschreibungen</h1>
 
+
         </div>
     </div>
 
@@ -66,12 +67,20 @@
                 </div>
                 </form>
                 <small><i>Hier können Sie nach Schlagwörtern, einer Branche oder direkt ihrem Beruf suchen!</i></small>
+                <div class="exception">
+                    <span th:text="${hits}"></span>
+                </div>
             </div>
 
         </div>
     </div>
 
     <div class="row ">
+        <div class="col-sm-12 col-lg-12 ">
+            <h3>Aktuell:</h3>
+            <hr>
+        </div>
+
 
         <div class="col-sm-12 col-lg-4 " th:each="search: ${searchList}">
 
@@ -84,7 +93,7 @@
 
                     </div>
 
-                    <a href="">
+                    <a th:href="@{'/jobdetails/' + ${search.id}}">
                         <div class="flip-back">
                             <h3 class="subtitle">Zusammenfassung</h3>
                             <div class="modal-first-section">
@@ -112,6 +121,8 @@
         </div>
 
     </div>
+
+
 
 </div>
 

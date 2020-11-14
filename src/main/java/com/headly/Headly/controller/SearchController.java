@@ -20,15 +20,21 @@ public class SearchController {
   SearchJobService searchJobService;
 
   private List<Jobpost> searchList;
-
+  private boolean posted= false;
 
 
   @GetMapping("/search")
   public String search(Model model){
+    String hits="";
     model.addAttribute("searchDto", new SearchString());
+
     if(searchList!=null){
       model.addAttribute("searchList",searchList);
 
+    }else if(posted){
+      hits="Keine Treffer!";
+      model.addAttribute("hits", hits);
+      posted=false;
     }
 
 
@@ -37,6 +43,7 @@ public class SearchController {
 
   @PostMapping("/search")
   public String search(@ModelAttribute SearchString searchString){
+     posted = true;
     String substring = searchString.getSubString();
     searchList = searchJobService.findAllJobsByGivenArguments(substring);
     return"redirect:/search";

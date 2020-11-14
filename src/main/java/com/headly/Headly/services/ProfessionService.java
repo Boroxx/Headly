@@ -1,5 +1,6 @@
 package com.headly.Headly.services;
 
+import com.headly.Headly.ErrorHandling.TemplateError;
 import com.headly.Headly.models.Profession;
 import com.headly.Headly.repos.ProfessionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,8 @@ import java.util.List;
 
 @Service
 public class ProfessionService {
+  TemplateError templateError = new TemplateError();
+
   @Autowired
   public ProfessionRepository professionRepository;
 

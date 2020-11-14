@@ -1,5 +1,6 @@
 package com.headly.Headly.controller;
 
+import com.headly.Headly.ErrorHandling.TemplateError;
 import com.headly.Headly.models.Jobpost;
 import com.headly.Headly.models.User;
 import com.headly.Headly.services.RegistrationService;
@@ -13,20 +14,29 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class RegistrationController {
 
+
+
   @Autowired
   RegistrationService registrationService;
 
   @GetMapping("/companyregistration")
   public String companyregistration(Model model){
     model.addAttribute("user",new User());
+
+    //deep copy
+    TemplateError err = registrationService.getTemplateError();
+    TemplateError error = new TemplateError(err.error,err.exists);
+    model.addAttribute("error", error);
+    registrationService.resetTemplateError();
     return"registration";
   }
 
 
   @PostMapping("/companyregistration")
   public String makePost(@ModelAttribute User user){
+
     registrationService.registerNewAccount(user);
 
-    return"redirect:/";
+    return"redirect:/companyregistration";
   }
 }

@@ -33,7 +33,7 @@ public class HeadlyApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-			User user = User.builder().city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
+			User user = User.builder().role("UNTERNEHMEN").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
 							.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
 
 			User u = registrationService.findUserById(user.getEmail());
