@@ -49,7 +49,7 @@
                     <span th:text="${jobpost.description}"></span>
                 </p>
 
-                <a href="#" class="btn btn-success">Jetzt bewerben</a>
+                <a th:href="@{'/authentication/' + ${jobpost.id}}" class="btn btn-success">Jetzt bewerben</a>
             </div>
 
 
