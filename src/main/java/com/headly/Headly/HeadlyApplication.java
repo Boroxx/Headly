@@ -45,13 +45,12 @@ public class HeadlyApplication implements CommandLineRunner {
 		Profession profession2 = new Profession(2,"Dienstleistung");
 		Profession profession3 = new Profession(3,"Elektro");
 		Profession profession4 = new Profession(4,"Gesundheit");
-
 		professionService.registerProfession(profession1);
 		professionService.registerProfession(profession2);
 		professionService.registerProfession(profession3);
 		professionService.registerProfession(profession4);
 
-
+	/*
 		List<Jobpost> jobposts = new ArrayList<>();
 		for(int i= 1; i< 10; i++){
 			jobposts.add(new Jobpost(i,1,null,"Elektriker" + i, "Bauwesen","45000 - 5000 Euro", "Ort" + i,"Vollzeit","Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." + i));
@@ -60,6 +59,6 @@ public class HeadlyApplication implements CommandLineRunner {
 		for (Jobpost jobpost : jobposts) {
 			postingService.registerPost(jobpost);
 		}
-
+*/
 	}
 }
