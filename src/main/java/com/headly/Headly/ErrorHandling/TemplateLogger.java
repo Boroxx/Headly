@@ -11,4 +11,5 @@ public class TemplateLogger {
   public String error;
   public boolean exists;
 
+
 }

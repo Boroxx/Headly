@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 
 <head>
 
@@ -29,7 +30,7 @@
   <div class=" formdesign" >
 
 
-    <form action="/upload" th:object="${applicationDto}"method="post" enctype="multipart/form-data" >
+    <form method="post" th:action="@{'/upload'}" th:object="${applicationDto}" enctype="multipart/form-data">
       <div class="form-row">
         <h1>HEADLY - Bewerbung</h1>
 
@@ -46,11 +47,6 @@
 
       <div class="form-row">
         <div class="form-group col-md-12">
-          <label for="inputEmail"><b>Email</b></label>
-          <input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="max@mustermann.de">
-
-        </div>
-        <div class="form-group col-md-12">
           <p>Laden Sie hier ihren Lebenslauf per <b>Drag and Drop</b> hoch! (oder klicken Sie auf <b>Auswählen</b>.)</p>
 
           <div class="dropContainer" id="dropContainer">
@@ -61,9 +57,12 @@
             </div>
 
           </div>
+
           <label  id="inputFileLabel" class="btn btn-dark my-3" for="inputFile">Auswählen
           <input type="file" style="display: none" class="form-control" id="inputFile" th:field="*{file}" placeholder="max@mustermann.de">
           </label>
+
+          <input type="text" th:value="${jobpost.id}" id="jobid" name="jobid" style="display: none">
         </div>
 
       </div>

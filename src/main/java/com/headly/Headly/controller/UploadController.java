@@ -1,8 +1,11 @@
 package com.headly.Headly.controller;
 
+import com.headly.Headly.ErrorHandling.TemplateLogger;
 import com.headly.Headly.dto.ApplicationDto;
+import com.headly.Headly.models.ApplicationModel;
 import com.headly.Headly.models.Jobpost;
 import com.headly.Headly.models.User;
+import com.headly.Headly.services.ApplicationModelService;
 import com.headly.Headly.services.PostingService;
 import com.headly.Headly.services.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +37,11 @@ public class UploadController {
   @Autowired
   RegistrationService registrationService;
 
+  @Autowired
+  ApplicationModelService applicationModelService;
+
+
+
   @GetMapping("/authentication/{jobid}")
   public String authentication(@PathVariable String jobid,Model model){
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -53,11 +61,20 @@ public class UploadController {
   }
 
   @PostMapping("/upload")
-  public String singleFileUpload(@ModelAttribute("applicationDto") ApplicationDto applicationDto) {
-    System.out.println(applicationDto.getEmail());
+  public String singleFileUpload(@ModelAttribute("applicationDto") ApplicationDto applicationDto) throws IOException {
+    System.out.println("POST");
+    Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+    String username = ((UserDetails)auth.getPrincipal()).getUsername();
+    User user = registrationService.findUserById(username);
 
 
-    return "redirect:/upload";
+    if(user!=null && applicationDto!=null){
+      applicationModelService.registerApplication(user,applicationDto,applicationDto.getJobid());
+      return "redirect:/upload/"+ applicationDto.getJobid();
+    }
+
+    return "redirect:/upload" ;
+
   }
 
   @GetMapping("/upload/{jobid}")

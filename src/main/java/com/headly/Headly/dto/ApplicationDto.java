@@ -9,7 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ApplicationDto {
-
-  private String email;
+  private String jobid;
   private MultipartFile file;
+
+
 }
