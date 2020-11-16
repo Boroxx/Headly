@@ -5,6 +5,7 @@ import com.headly.Headly.models.Jobpost;
 import com.headly.Headly.services.SearchJobService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -24,6 +25,7 @@ public class SearchController {
 
 
   @GetMapping("/search")
+  @Transactional
   public String search(Model model){
     String hits="";
     model.addAttribute("searchDto", new SearchString());
@@ -41,6 +43,7 @@ public class SearchController {
     return"search";
   }
 
+  @Transactional
   @PostMapping("/search")
   public String search(@ModelAttribute SearchString searchString){
      posted = true;
