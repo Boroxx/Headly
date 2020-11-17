@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class RegistrationController {
@@ -18,23 +19,21 @@ public class RegistrationController {
   @Autowired
   RegistrationService registrationService;
 
+
   @GetMapping("/companyregistration")
   public String companyregistration(Model model){
     model.addAttribute("user",new User());
 
-    //deep copy
-    TemplateLogger err = registrationService.getTemplateLogger();
-    TemplateLogger error = new TemplateLogger(err.error,err.exists);
-    model.addAttribute("error", error);
-    registrationService.resetTemplateError();
     return"registration";
   }
 
 
   @PostMapping("/companyregistration")
-  public String makePost(@ModelAttribute User user){
+  public String makePost(@ModelAttribute User user, RedirectAttributes redirectAttributes){
 
     registrationService.registerNewAccount(user);
+    redirectAttributes.addFlashAttribute("success","Registration war erfolgreich");
+
 
     return"redirect:/companyregistration";
   }

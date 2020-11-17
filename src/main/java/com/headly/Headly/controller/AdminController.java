@@ -25,17 +25,13 @@ public class AdminController {
   }
   @GetMapping("/admin/{applicationid}")
   public ResponseEntity<byte[]> getPDF1(@PathVariable String applicationid) {
-
-
     HttpHeaders headers = new HttpHeaders();
-
     headers.setContentType(MediaType.parseMediaType("application/pdf"));
     String filename = "Lebenslauf.pdf";
     headers.add("content-disposition", "inline;filename=" + filename);
     headers.setCacheControl("must-revalidate, post-check=0, pre-check=0");
     ApplicationModel applicationModel= applicationModelService.getApplicatonModel(applicationid);
 
-    ResponseEntity<byte[]> response = new ResponseEntity<byte[]>(applicationModel.getLebenslauf_pdf(), headers, HttpStatus.OK);
-    return response;
+    return new ResponseEntity<byte[]>(applicationModel.getLebenslauf_pdf(), headers, HttpStatus.OK);
   }
 }

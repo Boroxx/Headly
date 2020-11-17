@@ -143,9 +143,11 @@
       </div>
 
       <button type="submit" class="btn btn-outline-dark">Registrieren</button>
+      <hr>
 
-      <div class=" mt-2 alert alert-danger" th:if="${error.exists}">
-            <span th:text="${error.error}"></span>
+      <div class=" mt-2 alert alert-success" th:if="${success != null}">
+            <span th:text="${success}"></span>
+            <a href="/login" class="btn btn-success">Zum Login</a>
       </div>
     </form>
   </div>
@@ -235,6 +237,7 @@
 
 <script>
 ScrollReveal().reveal('.formdesign', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
+ScrollReveal().reveal('.bg', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>

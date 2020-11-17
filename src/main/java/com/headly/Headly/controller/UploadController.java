@@ -1,8 +1,6 @@
 package com.headly.Headly.controller;
 
-import com.headly.Headly.ErrorHandling.TemplateLogger;
 import com.headly.Headly.dto.ApplicationDto;
-import com.headly.Headly.models.ApplicationModel;
 import com.headly.Headly.models.Jobpost;
 import com.headly.Headly.models.User;
 import com.headly.Headly.services.ApplicationModelService;
@@ -19,14 +17,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 @Controller
 public class UploadController {

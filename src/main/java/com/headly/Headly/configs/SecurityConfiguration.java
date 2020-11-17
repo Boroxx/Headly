@@ -34,7 +34,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/admin").hasAnyRole("UNTERNEHMEN","BEWERBER")
 
 
-            .and().formLogin().loginPage("/login").defaultSuccessUrl("/search");;
+            .and().formLogin().loginPage("/login").failureUrl("/loginerror").loginProcessingUrl("/login");;
 
 
     http.logout().deleteCookies("remove").invalidateHttpSession(false)

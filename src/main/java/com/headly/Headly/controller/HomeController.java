@@ -29,6 +29,8 @@ public class HomeController {
 
   @Autowired
   ProfessionService professionService;
+
+
   @GetMapping("/")
   public String home(Model model){
     List<Jobpost> jobposts = postingService.loadAllJobs();
@@ -38,9 +40,7 @@ public class HomeController {
 
   @GetMapping("/applicants")
   public String applicants(Model model){
-
     return "applicants";
-
   }
   @GetMapping("/admin")
   public String admin(Model model){
@@ -60,11 +60,7 @@ public class HomeController {
     return"company";
 
   }
-  @GetMapping("/login")
-  public String login(){
-    return "login";
 
-  }
 
   @GetMapping("/ausschreibungen")
   public String ausschreibungen(Model model){
