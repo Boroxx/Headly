@@ -10,8 +10,10 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.context.annotation.SessionScope;
 
 import java.util.List;
+
 
 @Controller
 public class SearchController {
@@ -21,7 +23,7 @@ public class SearchController {
   SearchJobService searchJobService;
 
   private List<Jobpost> searchList;
-  private boolean posted= false;
+  private boolean sendSearchReq= false;
 
 
   @GetMapping("/search")
@@ -32,11 +34,13 @@ public class SearchController {
 
     if(searchList!=null){
       model.addAttribute("searchList",searchList);
+      searchList = null;
+      sendSearchReq = false;
 
-    }else if(posted){
+    }else if(sendSearchReq){
       hits="Keine Treffer!";
       model.addAttribute("hits", hits);
-      posted=false;
+      sendSearchReq=false;
     }
 
 
@@ -46,9 +50,10 @@ public class SearchController {
   @Transactional
   @PostMapping("/search")
   public String search(@ModelAttribute SearchString searchString){
-     posted = true;
+     sendSearchReq = true;
     String substring = searchString.getSubString();
-    searchList = searchJobService.findAllJobsByGivenArguments(substring);
+    String upperedString = substring.substring(0,1).toUpperCase() + substring.substring(1);
+    searchList = searchJobService.findAllJobsByGivenArguments(upperedString);
     return"redirect:/search";
   }
 }
