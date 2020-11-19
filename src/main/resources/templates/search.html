@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/all.css">
     <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
 
@@ -33,17 +34,33 @@
             <div class="my-5">
                 <form method="post" action="/search" th:object="${searchDto}">
                 <div class="input-group">
-
-
                     <input class="form-control" type="search" placeholder="Traumberuf finden!" name="subString" aria-label="Search">
                     <div class="input-group-append">
                         <button class="btn btn-success" type="submit">Los gehts!</button>
                     </div>
-
-
                 </div>
+                    <small><i>Hier können Sie nach Schlagwörtern, einer Branche oder direkt ihrem Beruf suchen!</i></small>
                 </form>
-                <small><i>Hier können Sie nach Schlagwörtern, einer Branche oder direkt ihrem Beruf suchen!</i></small>
+
+                <form class="py-5" method="post" action="/search/branch" th:object="${searchDto}">
+                    <h3>Oder suche nach einer spezifischen Branche:</h3>
+                    <div class="input-group">
+                        <select th:field="*{subString}"  class="form-control form-control-md">
+                            <option th:each="profession : ${professions}" th:value="${profession.professionname}" th:text="${profession.professionname}">Small select</option>
+                        </select>
+
+                        <div class="input-group-append">
+                        <button type="submit" class="btn btn-success" >Suche nach Branche!</button>
+                        </div>
+                    </div>
+
+
+
+                </form>
+
+
+
+
                 <div class="exception">
                     <span th:text="${hits}"></span>
                 </div>
@@ -56,6 +73,7 @@
 </div>
 
 <div class="container-fluid  py-5 jobmodulecontainer">
+    <div id="ancor"></div>
     <div class="row ">
         <div class="col-sm-12 col-lg-4 p-5" th:each="search: ${searchList}">
 
@@ -104,8 +122,14 @@
 
 <div th:replace="fragmentfooter :: footer">...</div>
 
+<script>
+    if($('.flip-div')[0]){
+        console.log("true")
+        location.href="#"
+        location.href="#ancor"
+    }
+</script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </body>

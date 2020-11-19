@@ -18,4 +18,9 @@ public class SearchJobService {
   public List<Jobpost> findAllJobsByGivenArguments(String substring){
     return jobPostRepository.findAllByJobnameIsContaining(substring);
   }
+
+  public List<Jobpost> findAllJobsByContainingProfession(String substring){
+    return jobPostRepository.findAllByProfessionIsContaining(substring);
+  }
+
 }
