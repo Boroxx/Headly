@@ -83,12 +83,6 @@ public class HomeController {
     return "ausschreibungen";
 
   }
-  @PostMapping("/admin/postJob")
-  public String makePost(@ModelAttribute Jobpost jobPost){
-    postingService.registerPost(jobPost);
-    System.out.println("Hello");
 
-    return"redirect:/admin";
-  }
 }
 

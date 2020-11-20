@@ -10,12 +10,16 @@ body{
     padding: 1rem 0 0 0;
 }
 
+.background-reveal {
+    visibility: hidden;
+
+}
 
 .modal-summary{
     background-color: gainsboro;
     border-radius: 0;
     padding: 0 3rem 0rem 3rem;
-    margin: 0 0 11rem 0;
+    margin: 0 0 16rem 0;
 }
 
 .modal-first-section{
@@ -42,4 +46,14 @@ body{
 .verticalicons{
    vertical-align: middle;
 }
-
+@media (max-width: 575.98px) {
+    .zusammenfassung{
+        padding:1rem 1rem 1rem 1rem;
+    }
+    .beschreibung{
+        padding:1rem 1rem 2rem 1rem;
+    }
+    .modal-summary{
+        margin: 0 0 1rem 0;
+    }
+}

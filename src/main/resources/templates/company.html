@@ -18,12 +18,12 @@
 
 <body>
 <div th:replace="fragmentheader :: header">...</div>
-<div class="bg scroll" >
+<div class="bg background-reveal scroll" >
 
 
     <div class="row m-0" >
         <div class="col-lg-12 col-sm-12 p-0">
-            <div class="scroll home_slogan_left " >
+            <div class="scroll home_slogan_left ">
                 <div class="p-5 text-center">
                     <h2>Für Unternehmen</h2>
 
@@ -42,6 +42,7 @@
                 <br>
                 <br>
                 <a class="btn btn-light" href="/companyregistration" style="color: grey !important;font-size: x-large" >Hier Registrieren!</a>
+
                 </div>
             </div>
         </div>
@@ -52,7 +53,7 @@
 
 
 
-        <div class="container scrollbottom scroll" style="margin-top: 15%;margin-bottom:15%">
+        <div class="container scrollbottom scroll" style="background-color:white;margin-top: 15%;margin-bottom:15%">
             <h1  class="display-4 mb-4">Headly - Philosophie</h1>
             <p class="lead"> Headly steht für einen zukunftsorientierten Weg der <b>Zusammenführung</b> von Bewerber und Unternehmen. Dabei arbeiten wir täglich daran den Prozess weiter zu optimieren und nehmen uns Feedback zu Herzen.<br>
                 Neben der angestrebten <b>Effizienz</b> versuchen wir den Bewerbungsprozess so angenehm wie möglich zu gestalten.<br>
@@ -123,6 +124,10 @@
 
 
 </div>
+
+
+<div th:replace="fragmentfooter :: footer">...</div>
+
 <script>
     ScrollReveal().reveal('.scroll', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
     ScrollReveal().reveal('.scroll-up', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});

@@ -26,13 +26,13 @@
         <div class="container-fluid">
 
         <div class="row ">
-            <div class="col-md-6 remove-margin">
+            <div class=" zusammenfassung col-md-6  remove-margin">
 
                 <div class="modal-summary ">
                     <h3 class="subtitle">Zusammenfassung</h3>
                         <div class="modal-first-section">
                             <p><i class="fas fa-location-arrow verticalicons"></i> <b>Standort:</b> <span th:text="${jobpost.location}"></span> </p>
-                            <p><i class="fas fa-dollar-sign verticalicons"></i>  <b>Gehalt: </b><span th:text="${jobpost.salary}"></span> </p>
+                            <p><i class="fas fa-euro-sign"></i> <b>Gehalt: </b><span th:text="${jobpost.salary}"></span> </p>
                             <p><i class="fas fa-hourglass-half verticalicons"></i><b> Art: </b><span th:text="${jobpost.toe}"> </span> </p>
                         </div>
 
@@ -46,9 +46,9 @@
                 </div>
 
             </div>
-            <div class="col-md-6 remove-margin">
+            <div class="beschreibung col-md-6 remove-margin">
                 <h2> <span th:text="${jobpost.jobname}"></span></h2>
-                <p>
+                <p  style="white-space: pre-line">
                     <span th:text="${jobpost.description}"></span>
                 </p>
 

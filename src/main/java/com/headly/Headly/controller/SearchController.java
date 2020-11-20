@@ -39,7 +39,6 @@ public class SearchController {
 
     if(searchList!=null){
       model.addAttribute("searchList",searchList);
-      System.out.println(searchList);
       searchList = null;
       sendSearchReq = false;
 
@@ -68,7 +67,6 @@ public class SearchController {
   public String searchAfterBranch(@ModelAttribute SearchString searchString){
     sendSearchReq = true;
     String profession = searchString.getSubString();
-    System.out.println(profession);
     searchList = searchJobService.findAllJobsByContainingProfession(profession);
 
     return"redirect:/search";

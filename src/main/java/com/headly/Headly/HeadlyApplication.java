@@ -35,11 +35,18 @@ public class HeadlyApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 
 
-			User user = User.builder().role("BEWERBER").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
+			User applicant = User.builder().role("BEWERBER").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
 							.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
+			User company = User.builder().role("UNTERNEHMEN").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("test@test.de").housenumber("40")
+				.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
 
-			User u = registrationService.findUserById(user.getEmail());
-			if(u==null) registrationService.registerNewAccount(user);
+			User uappclicant = registrationService.findUserById(applicant.getEmail());
+			User ucompany = registrationService.findUserById(company.getEmail());
+			if(uappclicant==null && ucompany==null){
+				registrationService.registerNewAccount(applicant);
+				registrationService.registerNewAccount(company);
+				System.out.println("ERSTELLT");
+			}
 
 		Profession profession1 = new Profession(1,"Bauwesen");
 		Profession profession2 = new Profession(2,"Dienstleistung");

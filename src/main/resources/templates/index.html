@@ -131,7 +131,7 @@
             </div>
         </div>
 
-    <div  style="background-color: gainsboro; padding:10%"  >
+    <div  class="favoritejobs" >
         <div class="d-flex justify-content-center text-center">
             <h2>Hier ein Überblick über unsere Stellenanzeigen!</h2>
 
@@ -144,7 +144,7 @@
 
                 <div class="card cardStellen mb-5">
                     <div class="card-body">
-                        <h5 class="card-title"><span th:text="${jobpost.jobname}"></span></h5>
+                        <h5 class="card-title"><b><span th:text="${jobpost.jobname}"></span></b></h5>
 
                         <p class="card-text"><span th:text="${jobpost.description}"></span></p>
                         <a class="btn btn-dark" th:href="@{'/jobdetails/'+ ${jobpost.id} }" >Zum Job</a>

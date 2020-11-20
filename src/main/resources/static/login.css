@@ -17,27 +17,27 @@ body, html {
 
     padding: 10rem;
 }
-
 .loginform{
 
-    box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.1);
     border-width: 1px;
     background:  rgba(255, 255, 255, 0.9);
     padding: 6rem;
     font-family: 'Marvel', sans-serif;
 
-
-
 }
-
-
 @media (max-width: 575.98px) {
-    .loginform{
-        background-color: white;
-        background:  rgba(255, 255, 255, 0.8);
-        box-shadow: 2px 10px 10px 1px rgba(0, 0, 0, 0.8);
-
-
+    .bg {
+        background-image: none;
+        height: 100%;
+        padding: 1rem;
     }
 
+    .loginform {
+        padding:5rem 1rem 1rem 1rem;
+        height:100%;
+    }
 }
+
+
+

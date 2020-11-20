@@ -25,11 +25,10 @@
         <form method="post">
 
 
-            <div class="form-row">
-                <h1>HEADLY - Login</h1>
-            </div>
 
-            <div class="form-row ">
+                <h1>HEADLY - Login</h1>
+
+
 
                 <div class="form-group col-sm-12 col-md-12 ">
 
@@ -38,11 +37,8 @@
                         <input class="form-control" id="userID" name="username" size="30">
                         <small class="form-text text-muted" id="userIdHelp">Geben Sie hier ihre Email als Anmelde-Id
                             ein</small>
-
                 </div>
-            </div>
 
-            <div class="form-row ">
 
                     <div class="form-group col-sm-12 col-md-12 ">
                         <label for="exampleInputPassword1">Passwort</label>
@@ -51,9 +47,8 @@
                     </div>
 
 
-            </div>
 
-            <div class="form-row ">
+
                 <div class="form-group col-sm-12 col-md-12  ">
                         <input class="btn btn-dark" type="submit" value="Anmelden">
 
@@ -61,7 +56,7 @@
                 <div class="alert alert-danger" th:if="${error}">
                     <span th:text="${error}"></span>
                 </div>
-            </div>
+
         </form>
             </div>
 

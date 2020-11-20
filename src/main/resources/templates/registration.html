@@ -143,7 +143,19 @@
         </div>
       </div>
 
-      <button type="submit" class="btn btn-outline-dark">Registrieren</button>
+      <div class="form-check py-2">
+        <input type="checkbox" class="form-check-input" id="datenschutzCheck">
+        <label class="form-check-label" for="datenschutzCheck"><a href="#">Datenschutzerklärung</a> akzeptieren.</label>
+      </div>
+
+      <div class="form-check py-2">
+        <input type="checkbox" class="form-check-input" id="agbCheck">
+        <label class="form-check-label" for="agbCheck"><a href="#">AGB's</a> akzeptieren.</label>
+      </div>
+
+
+
+      <button id="submit" type="submit" class="btn btn-outline-dark" disabled>Registrieren</button>
       <hr>
 
       <div class=" mt-2 alert alert-success" th:if="${success != null}">
@@ -154,6 +166,19 @@
   </div>
 
 </div>
+<script>
+  function change(){
+    if($('#agbCheck').prop('checked')  && $('#datenschutzCheck').prop('checked')){
+      $('#submit').prop('disabled',false);
+    }
+
+  }
+
+  $('#agbCheck').on('change',change);
+  $('#datenschutzCheck').on('change',change);
+
+
+</script>
 
   <script>
     // Example starter JavaScript for disabling form submissions if there are invalid fields
