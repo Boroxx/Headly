@@ -11,7 +11,9 @@ src/main/.DS_Store
 src/main/java/.DS_Store
 src/main/java/com/.DS_Store
 src/main/java/com/headly/.DS_Store
+
 src/main/resources/application-dev.properties
+j
 ### STS ###
 .apt_generated
 .classpath
