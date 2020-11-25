@@ -45,7 +45,7 @@ public class HeadlyApplication implements CommandLineRunner {
 				registrationService.enableUser(applicant);
 				registrationService.registerNewAccount(company);
 				registrationService.enableUser(company);
-				System.out.println("ERSTELLT");
+				
 			}
 
 		Profession profession1 = new Profession(1,"Bauwesen");
