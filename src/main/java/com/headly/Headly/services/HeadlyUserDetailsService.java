@@ -30,7 +30,7 @@ public class HeadlyUserDetailsService implements UserDetailsService {
     if(user== null){
         throw new UsernameNotFoundException("Kein Benutzer gefunden"+ username);
     }
-    boolean enabled = true;
+    boolean enabled = user.isEnabled();
     boolean accountNonExpired = true;
     boolean credentialsNonExpired = true;
     boolean accountNonLocked = true;

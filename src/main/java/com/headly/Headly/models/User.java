@@ -22,6 +22,7 @@ public class User {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private int id;
+  private boolean isEnabled;
   private String companyname;
   private String email;
   private String contactperson;
@@ -34,6 +35,7 @@ public class User {
   private String role;
   private String firstname;
   private String lastname;
+
 
 
 }

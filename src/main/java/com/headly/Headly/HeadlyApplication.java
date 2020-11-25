@@ -33,8 +33,6 @@ public class HeadlyApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
-
 			User applicant = User.builder().role("BEWERBER").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
 							.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
 			User company = User.builder().role("UNTERNEHMEN").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("test@test.de").housenumber("40")
@@ -44,7 +42,9 @@ public class HeadlyApplication implements CommandLineRunner {
 			User ucompany = registrationService.findUserById(company.getEmail());
 			if(uappclicant==null && ucompany==null){
 				registrationService.registerNewAccount(applicant);
+				registrationService.enableUser(applicant);
 				registrationService.registerNewAccount(company);
+				registrationService.enableUser(company);
 				System.out.println("ERSTELLT");
 			}
 

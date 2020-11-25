@@ -32,6 +32,7 @@ public class RegistrationService {
       user.setPassword(pass);
       String role_temp = user.getRole();
       String role = "ROLE_" + role_temp.toUpperCase();
+      user.setEnabled(false);
       user.setRole(role);
       userRepository.save(user);
 
@@ -44,6 +45,14 @@ public class RegistrationService {
 
   }
 
+  public void saveUser(User user){
+    userRepository.save(user);
+  }
+
+  public void enableUser(User user){
+    user.setEnabled(true);
+    userRepository.save(user);
+  }
 
   public User findUserById(String username){
     return userRepository.findByEmail(username);
