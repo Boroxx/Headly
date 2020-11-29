@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/fonts.css">
+    <link rel="stylesheet" href="/applicationoverview.css">
 
     <title>Bewerbungsübersicht</title>
 </head>
@@ -45,6 +46,7 @@
                 <th scope="col">Bewerbungs-ID</th>
                 <th scope="col">Nutzer der sich bewirbt</th>
                 <th scope="col">Job auf den beworben wurde:</th>
+                  <th scope="col">Email des Bewerbers</th>
                 <th scope="col">Lebenslauf-Link</th>
             
               </tr>
@@ -52,8 +54,9 @@
             <tbody th:each="overview: ${applications}">
               <tr >
                   <td><span th:text="${overview.applicationid}"></span></td>
-                  <td><span th:text="${overview.userid}"></span></td>
-                  <td><span th:text="${overview.jobid}"></span></td>
+                  <td>ID: <span th:text="${overview.userid}"></span> Name:<span th:text="${overview.userfullname}"></span></td>
+                  <td>JobID: <span th:text=" ${overview.jobid}"></span> Jobname:<span th:text=" ${overview.jobname}"></span>  </td>
+                  <td><span th:text="${overview.usermail}"></span></td>
                   <td><a th:href="@{'/admin/' + ${overview.applicationid}}" class="btn btn-dark">Zum Lebenslauf</a> </td>
               </tr>
             </tbody>
