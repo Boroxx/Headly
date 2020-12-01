@@ -13,8 +13,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -47,7 +45,7 @@ public class HomeController {
     List<Profession> professions = professionService.getAllProfessions();
     model.addAttribute("jobPost", new Jobpost());
     model.addAttribute("professions", professions);
-    return "admin";
+    return "addausschreibung";
   }
 
   @GetMapping("/logout")
