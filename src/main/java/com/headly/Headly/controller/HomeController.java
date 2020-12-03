@@ -6,6 +6,8 @@ import com.headly.Headly.models.User;
 import com.headly.Headly.services.PostingService;
 import com.headly.Headly.services.ProfessionService;
 import com.headly.Headly.services.RegistrationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -27,12 +29,14 @@ public class HomeController {
 
   @Autowired
   ProfessionService professionService;
+  Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 
   @GetMapping("/")
   public String home(Model model){
     List<Jobpost> jobposts = postingService.loadAllJobs();
     model.addAttribute("jobposts", jobposts);
+
     return "index";
   }
 
@@ -40,7 +44,9 @@ public class HomeController {
   public String applicants(Model model){
     return "applicants";
   }
-  @GetMapping("/admin")
+
+
+  @GetMapping("/addausschreibungen")
   public String admin(Model model){
     List<Profession> professions = professionService.getAllProfessions();
     model.addAttribute("jobPost", new Jobpost());
@@ -48,10 +54,6 @@ public class HomeController {
     return "addausschreibung";
   }
 
-  @GetMapping("/logout")
-  public String logout(){
-    return "logout";
-  }
 
   @GetMapping("/company")
   public String company(){
@@ -66,17 +68,15 @@ public class HomeController {
 
     Authentication auth = SecurityContextHolder.getContext().getAuthentication();
     String username = ((UserDetails)auth.getPrincipal()).getUsername();
-
      User user = registrationService.findUserById(username);
-
-     int id = user.getId();
-     List<Jobpost> jobPosts = postingService.loadAllJobsById(id);
-     model.addAttribute("jobposts",jobPosts);
-     model.addAttribute("contactperson", user.getContactperson());
-
-
-
-
+     if(user!=null){
+       int id = user.getId();
+       List<Jobpost> jobPosts = postingService.loadAllJobsById(id);
+       model.addAttribute("jobposts",jobPosts);
+       model.addAttribute("contactperson", user.getContactperson());
+     }else{
+       logger.error("User not not found by id: " + username);
+     }
 
     return "ausschreibungen";
 

@@ -6,6 +6,8 @@ import com.headly.Headly.models.User;
 import com.headly.Headly.services.ApplicationModelService;
 import com.headly.Headly.services.PostingService;
 import com.headly.Headly.services.RegistrationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AnonymousAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -31,6 +33,8 @@ public class UploadController {
 
   @Autowired
   ApplicationModelService applicationModelService;
+
+  Logger logger = LoggerFactory.getLogger(UploadController.class);
 
 
 
@@ -63,9 +67,13 @@ public class UploadController {
     if(user!=null && applicationDto!=null){
       applicationModelService.registerApplication(user,applicationDto,applicationDto.getJobid());
       return "redirect:/upload/"+ applicationDto.getJobid();
+    }else{
+
+      return "redirect:/error";
+
     }
 
-    return "redirect:/upload" ;
+
 
   }
 

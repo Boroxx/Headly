@@ -17,18 +17,17 @@
 
 <div th:replace="fragmentheader :: header">...</div>
 
-<div class="tool">
+<div class="d-flex justify-content-between tool">
 
     <h3>Hallo <span th:text="${contactperson}"></span>, hier finden Sie alle Ausschreibungen die Sie hinzugefügt haben.</h3>
-
-
-</div>
-
-<div class="addJob">
-    <a href="/admin" class="btn btn-success"><span style="color:white"><i class="fas fa-plus"></i></span></a>
-    <span><b>Füge Stellenanzeige hinzu</b></span>
+    <div class="addJob">
+        <a href="/addausschreibungen" class="btn btn-success"><span style="color:white"><i class="fas fa-plus"></i></span></a>
+        <span><b>Füge Stellenanzeige hinzu</b></span>
+    </div>
 
 </div>
+
+
 <div class="jobs">
         <div class="row">
             <div class="col-lg-4" th:each="jobpost: ${jobposts}" style="margin-top: 5%">
