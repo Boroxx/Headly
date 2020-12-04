@@ -8,11 +8,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.context.annotation.SessionScope;
 
+import javax.validation.Valid;
 import java.util.List;
 
 
@@ -54,7 +56,11 @@ public class SearchController {
 
   @Transactional
   @PostMapping("/search")
-  public String search(@ModelAttribute SearchString searchString){
+  public String search(@Valid @ModelAttribute SearchString searchString, BindingResult bindingResult){
+    if(bindingResult.hasErrors()){
+      return "redirect:/search";
+    }
+
      sendSearchReq = true;
     String substring = searchString.getSubString();
     String upperedString = substring.substring(0,1).toUpperCase() + substring.substring(1);

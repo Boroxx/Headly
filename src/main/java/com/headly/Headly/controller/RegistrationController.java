@@ -6,6 +6,8 @@ import com.headly.Headly.models.User;
 import com.headly.Headly.repos.ConformationTokenRepository;
 import com.headly.Headly.services.MailSenderService;
 import com.headly.Headly.services.RegistrationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
@@ -22,6 +24,8 @@ import javax.servlet.http.HttpServletRequest;
 
 @Controller
 public class RegistrationController {
+  Logger logger = LoggerFactory.getLogger(RegistrationController.class);
+
 
   @Value("${spring.mail.username}")
   private String javamailsender_mail;
@@ -62,9 +66,11 @@ public class RegistrationController {
       User user = registrationService.findUserById(confToken.getUser().getEmail());
       user.setEnabled(true);
       registrationService.saveUser(user);
+
       return "redirect:/registrationverified";
 
     }else{
+      logger.error("Konnte ConfirmationToken nicht in Datenbank finden...");
       return "redirect:/registrationfailed";
     }
   }
@@ -75,11 +81,12 @@ public class RegistrationController {
 
     if(registrationService.findUserById(user.getEmail())!=null){
       redirectAttributes.addFlashAttribute("error","User vergeben");
+      logger.info("Useraccountname ist bereits in Datenbank vorhanden.");
       return"redirect:/companyregistration";
 
     }else {
       System.out.println(javamailsender_mail);
-      String appurl =request.getContextPath();
+      String appurl =request.getServerName();
       registrationService.registerNewAccount(user);
       ConfirmationToken confirmationToken = new ConfirmationToken(user);
       conformationTokenRepository.save(confirmationToken);
@@ -90,7 +97,7 @@ public class RegistrationController {
       mailMessage.setText("Um deinen Account freizuschalten klicke den folgenden Link: " + appurl + "/registrationConfirm?token=" +confirmationToken.getConfirmationToken());
       redirectAttributes.addFlashAttribute("success","Registration war erfolgreich. Schaue in deinen Posteingang um deinen Account zu verifizieren.");
       mailSenderService.sendMail(mailMessage);
-
+      logger.info("Verification Email successfully send");
 
       return"redirect:/companyregistration";
     }

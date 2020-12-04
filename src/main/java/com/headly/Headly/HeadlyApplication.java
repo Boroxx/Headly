@@ -33,7 +33,8 @@ public class HeadlyApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-			User applicant = User.builder().role("BEWERBER").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
+
+			User applicant = User.builder().role("BEWERBER").city("moenchengladbach").firstname("Boris").lastname("Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
 							.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
 			User company = User.builder().role("UNTERNEHMEN").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("test@test.de").housenumber("40")
 				.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
@@ -48,6 +49,8 @@ public class HeadlyApplication implements CommandLineRunner {
 
 			}
 
+
+
 		Profession profession1 = new Profession(1,"Bauwesen");
 		Profession profession2 = new Profession(2,"Dienstleistung");
 		Profession profession3 = new Profession(3,"Elektro");
@@ -57,17 +60,26 @@ public class HeadlyApplication implements CommandLineRunner {
 		professionService.registerProfession(profession3);
 		professionService.registerProfession(profession4);
 
-		/*
+
 		List<Jobpost> jobposts = new ArrayList<>();
 		for(int i= 1; i< 10; i++){
-			jobposts.add(new Jobpost(i,1,null,"Elektriker" + i, "Bauwesen","45000 - 5000 Euro", "Ort" + i,"Vollzeit","Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet." + i));
+			jobposts.add(new Jobpost(i,
+					1,
+					null,
+					"Elektriker" + i,
+					"Bauwesen",
+					"45000 - 5000 Euro",
+					"Ort" + i,
+					"Vollzeit",
+					"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet."+ i));
+
 		}
 
 		for (Jobpost jobpost : jobposts) {
 			postingService.registerPost(jobpost);
 		}
 
-		 */
+
 
 	}
 }
