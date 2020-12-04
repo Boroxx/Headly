@@ -46,12 +46,12 @@ public class RegistrationController {
 
   @GetMapping("/registrationverified")
   public String verified(Model model){
-    return "/RegistrationVerified";
+    return "RegistrationVerified";
   }
 
   @GetMapping("/registrationfailed")
   public String failed(Model model){
-    return "/RegistratioFailed";
+    return "RegistratioFailed";
   }
 
   @GetMapping("/registrationConfirm")
