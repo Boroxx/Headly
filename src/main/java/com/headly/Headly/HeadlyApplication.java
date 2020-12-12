@@ -50,7 +50,7 @@ public class HeadlyApplication implements CommandLineRunner {
 			}
 
 
-
+/*
 		Profession profession1 = new Profession(1,"Bauwesen");
 		Profession profession2 = new Profession(2,"Dienstleistung");
 		Profession profession3 = new Profession(3,"Elektro");
@@ -78,6 +78,8 @@ public class HeadlyApplication implements CommandLineRunner {
 		for (Jobpost jobpost : jobposts) {
 			postingService.registerPost(jobpost);
 		}
+		*/
+
 
 
 
