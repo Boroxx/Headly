@@ -3,21 +3,52 @@ body, html {
     font-family: 'Marvel', sans-serif;
 }
 .bg {
-    /* The image used */
-    background-image: url("/background_mac.jpg");
 
-    /* Full height */
-    height: 100%;
+}
 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
+@media (max-width: 575.98px) {
+    .bg {
+        /* The image used */
+        background-image: url("/background_mac.jpg");
+
+        /* Full height */
+        height: 100%;
+
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+}
+
+#myVideo {
+    position: fixed;
+    z-index: -1;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height:auto ;
+
+}
+
+@media(min-aspect-ratio: 16/9){
+    #myVideo {
+        width:100%;
+        height:auto;
+    }
+}
+
+@media(max-aspect-ratio: 16/9){
+    #myVideo {
+        width:auto;
+        height:100%;
+    }
 }
 
 .home_slogan_left{
      background-color: grey;
-    font-size: x-large;
+    font-size: xx-large;
      background: rgba(0,0,0,.5);
      color:white;
      border-radius: 0px 20px 20px 0px;"
@@ -26,7 +57,7 @@ body, html {
 
 .home_slogan_right{
     background-color: grey;
-    font-size: x-large;
+    font-size: xx-large;
     background: rgba(0,0,0,.5);
     color:white;
     border-radius: 20px 0px 0px 20px;"
@@ -173,12 +204,3 @@ video{
 
 }
 
-#myVideo {
-    position: fixed;
-    z-index: -1;
-    right: 0;
-    bottom: 0;
-    width: 100%;
-    height:auto ;
-
-}

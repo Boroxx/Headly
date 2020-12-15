@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profil</title>
+    <link rel="stylesheet preload" href="/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/all.css">
+    <link rel="stylesheet" href="/myApplicantProfile.css">
+    <link rel="stylesheet" href="/fonts.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+</head>
+<body>
+
+<div  >
+
+    <div th:replace="fragmentheader :: header">...</div>
+
+    <div class="container profiletable">
+    <h1>Deine Profil-Übersicht</h1>
+
+
+        <table class="table" >
+            <tr>
+                <th>Name:</th>
+                <td><span th:text="${user.getFirstname()}"> </span> <span th:text="${user.getLastname()}"> </span></td>
+            </tr>
+            <tr>
+                <th>Email:</th>
+                <td><span th:text="${user.getEmail()}"></span></td>
+            </tr>
+            <tr>
+                <th>Straße:</th>
+                <td><span th:text="${user.getStreet()}"></span></td>
+            </tr>
+            <tr>
+                <th>Hausnummer:</th>
+                <td><span th:text="${user.getHousenumber()}"></span></td>
+            </tr>
+            <tr>
+                <th>Postleitzahl:</th>
+                <td><span th:text="${user.getZipcode()}"></span></td>
+            </tr>
+            <tr>
+                <th>Stadt:</th>
+                <td><span th:text="${user.getCity()}"></span></td>
+            </tr>
+        </table>
+</div>
+
+</div>
+
+<div th:replace="fragmentfooter :: footer">...</div>
+
+</body>
+</html>
