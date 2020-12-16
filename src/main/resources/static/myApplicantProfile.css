@@ -1,4 +1,11 @@
 .profiletable{
 
-    padding: 10% 0 15.5% 0;
+    padding: 10rem 0 10rem 0;
+}
+
+.foot{
+    position: fixed;
+    width: 100%;
+    bottom:0;
+
 }
