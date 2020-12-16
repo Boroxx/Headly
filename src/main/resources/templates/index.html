@@ -10,6 +10,7 @@
     <link rel="stylesheet preload" href="/main.css">
     <link rel="stylesheet" href="/all.css">
     <link rel="stylesheet" href="/fonts.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
 
@@ -20,7 +21,7 @@
 
     <div th:replace="fragmentheader :: header">...</div>
 
-    <video autoplay muted loop id="myVideo">
+    <video class="videomobile" autoplay muted loop id="myVideo">
         <source src="videobackground2.mp4" type="video/mp4">
     </video>
 
@@ -37,7 +38,7 @@
         <div class="d-flex flex-row-reverse mt-5">
             <div class="scroll-right  mt-3 ml-5 p-4 home_slogan_right"><i style="color:darkseagreen" class="fas fa-comment-dots"></i>
 
-                <b>Super! Dann bist du hier genau richtig.<br> Wir finden für dich das passende Unternehmen. <br> Das einzige was du tun musst ist dich <a style="color: darkseagreen "href="/companyregistration"> <u>hier</u></a> bewerben!</b></div>
+                <b>Super! Dann bist du hier genau richtig.<br> Wir finden für dich das passende Unternehmen. <br> Das einzige was du tun musst ist dich <a style="color: darkseagreen "href="/applicantregistration"> <u>hier</u></a> bewerben!</b></div>
 
         </div>
         <div class="d-flex flex-row" style="margin-bottom: 10%">
@@ -58,16 +59,16 @@
 
         <div class="ease">
             <div class="d-flex justify-content-center text-center">
-                <h2 class=" "><b>Schau dir Unser Video an, damit du einen besseren Einblick bekommst was dich bei Uns erwartet.</b></h2>
+                <h2 style="color:white!important" class=" "><b>Schau dir Unser Video an, damit du einen besseren Einblick bekommst was dich bei Uns erwartet.</b></h2>
             </div>
-            <hr style="width:20%;border-color:black!important;">
+            <hr style="width:20%;border-color:white!important;">
 
             <div class="embed-responsive embed-responsive-16by9">
                 <video src="bewerbervideo.mp4" controls></video>
             </div>
 
             <div class="d-flex justify-content-center text-center mt-4">
-                <h3 class=" ">Klicke hier um ein bisschen in unserem Jobangebot herumzustöbern!</h3>
+                <h3 style="color:white!important" class=" ">Klicke hier um ein bisschen in unserem Jobangebot herumzustöbern!</h3>
             </div>
 
         </div>
@@ -84,8 +85,8 @@
         </div>
         <hr style="width:20%;border-color:black!important;">
 
-        <div class="row " style="padding:5% 0 5% 0">
-            <div class="col-sm">
+        <div class="row " style="padding:5% 5% 5% 5%;margin:0">
+            <div class="col-sm-4">
                 <div class="ease_1 card tripel align-items-center" >
                     <div class="card-body justify-content-center">
                         <div class="text-center">
@@ -100,7 +101,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm-4">
                 <div class="ease_2 card tripel align-items-center" >
                     <div class="card-body justify-content-center">
                         <div class="text-center">
@@ -115,7 +116,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
+            <div class="col-sm-4">
                 <div class="ease_3 card tripel align-items-center" >
                     <div class="card-body justify-content-center">
                         <div class="text-center">
@@ -186,6 +187,18 @@
 
 
     <script>
+        $(function() {
+            let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
+            if (isMobile) {
+                $('#myVideo').remove();// some code..//Conditional script here
+
+            }
+        });
+
+
+
+
         ScrollReveal().reveal('.ease', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
         ScrollReveal().reveal('.ease_1', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
         ScrollReveal().reveal('.ease_2', {delay: 500, duration: 2000, origin: 'bottom', distance: '0px'});

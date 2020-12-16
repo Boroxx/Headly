@@ -5,7 +5,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Registration</title>
+  <title>Registration Bewerber</title>
 
 
   <link rel="stylesheet preload" href="/main.css">
@@ -30,31 +30,35 @@
   <div class=" formdesign" >
 
 
-    <form action="/companyregistration" method="post" th:object="${user}" class="needs-validation" novalidate>
+    <form action="/applicantregistration" method="post" th:object="${user}" class="needs-validation" novalidate>
       <div class="form-row">
-        <h1>HEADLY - Unternehmer - Registration</h1>
+        <h1>HEADLY - Bewerber - Registration</h1>
 
+      </div>
+
+      <div class="form-row">
+        <h4>Falls Sie sich als Unternehmer registrieren wollen, dann klicken Sie <a href="/companyregistration">hier</a>!</h4>
       </div>
       <hr>
 
       <div class="form-group">
         <div class="custom-control custom-radio custom-control-inline">
-          <input type="radio"  onclick="toggleCompany()" id="option1" name="option1" class="custom-control-input" value="Unternehmen" th:field="*{role}">
-          <label class="custom-control-label" for="option1">Unternehmen</label>
+          <input type="radio"  id="option2" name="option2" class="custom-control-input" value="Bewerber" th:field="*{role}" th:checked="${true}">
+          <label class="custom-control-label" for="option2">Bewerber</label>
         </div>
-
       </div>
+
 
       <div class="form-row">
         <div class="form-group col-md-12">
-          <label for="inputEmail">Email</label>
+          <label for="inputEmail"><b>Email </b></label>
           <input type="email" class="form-control" id="inputEmail" th:field="*{email}" placeholder="max@mustermann.de" required>
           <div class="invalid-feedback">
             Bitte geben Sie eine Email ein!
           </div>
         </div>
         <div class="form-group col-md-12">
-          <label for="inputPassword">Passwort (mindestens <b>acht</b> Zeichen/Ziffern</label>
+          <label for="inputPassword"><b>Passwort (mindestens acht Zeichen/Ziffern </b></label>
           <input type="password" class="form-control" id="inputPassword" th:field="*{password}" required>
           <div class="invalid-feedback">
             Bitte geben Sie ein Passwort ein!
@@ -64,35 +68,17 @@
       </div>
 
 
-      <div class="form-row company">
-      <div class="form-group col-md-12">
-        <label for="inputCompany">Name des Unternehmens</label>
-        <input type="text" class="form-control" id="inputCompany"  th:field="*{companyname}" placeholder="Unternehmen GmbH"  required>
-        <div class="invalid-feedback">
-          Bitte geben Sie den Namen ihres Unternehmens ein!
-        </div>
-      </div>
-
-      <div class="form-group col-md-12">
-        <label for="inputContactPerson">Ansprechpartner</label>
-        <input type="text" class="form-control" id="inputContactPerson" placeholder="Herr Mustermann"
-          th:field="*{contactperson}" required >
-        <div class="invalid-feedback">
-          Bitte geben Sie den Ansprechpartner an!
-        </div>
-      </div>
-    </div>
 
       <div class="form-row applicant">
         <div class="form-group col-md-6">
-          <label for="inputEmail">Vorname</label>
+          <label for="inputEmail"><b>Vorname</b></label>
           <input type="text" class="form-control" id="inputFirstname" th:field="*{firstname}" placeholder="Max"  required>
           <div class="invalid-feedback">
             Bitte geben Sie ihren Vornamen an!
           </div>
         </div>
         <div class="form-group col-md-6">
-          <label for="inputPassword">Nachname</label>
+          <label for="inputPassword"><b>Nachname</b></label>
           <input type="text" class="form-control" id="inputLastname" th:field="*{lastname}"  placeholder="Mustermann" required>
           <div class="invalid-feedback">
             Bitte geben Sie ihren Nachnamen an!
@@ -102,7 +88,7 @@
 
       <div class="form-row ">
         <div class="form-group col-md-6">
-          <label for="inputAddress">Strasse</label>
+          <label for="inputAddress"><b>Strasse</b></label>
           <input type="text" class="form-control" id="inputAddress"  th:field="*{street}" placeholder="Musterstrasse"  required>
           <div class="invalid-feedback">
             Bitte geben Sie eine Strasse an!
@@ -110,7 +96,7 @@
         </div>
 
         <div class="form-group col-md-4">
-          <label for="housenumber ">Hausnummer</label>
+          <label for="housenumber "><b>Hausnummer</b></label>
           <input type="text" class="form-control" id="housenumber " th:field="*{housenumber}" placeholder="1"  required>
           <div class="invalid-feedback">
             Bitte geben Sie eine Hausnummer an!
@@ -122,7 +108,7 @@
 
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="inputCity">Stadt</label>
+          <label for="inputCity"><b>Stadt</b></label>
           <input type="text" class="form-control" id="inputCity" th:field="*{city}" placeholder="Musterstadt" required>
           <div class="invalid-feedback">
             Bitte geben Sie eine Stadt an!
@@ -130,12 +116,35 @@
         </div>
 
         <div class="form-group col-md-4">
-          <label for="inputZip">Postleitzahl</label>
+          <label for="inputZip"><b>Postleitzahl</b></label>
           <input type="text" class="form-control" id="inputZip" th:field="*{zipcode}" placeholder="12345"  required>
           <div class="invalid-feedback">
             Bitte geben Sie eine Postleitzahl ein!
           </div>
         </div>
+      </div>
+
+
+      <div class="form-row">
+      <div class="form-group col-md-4">
+        <label for="abschluss"><b>Abschluss/ Angestrebter Abschluss </b></label>
+        <input type="date" name="abschluss" id="abschluss" max="3000-12-31"
+               min="1000-01-01" class="form-control" required>
+        <div class="invalid-feedback">
+          Bitte geben Sie hier an wann Sie ihren Abschluss erhalten haben, bzw. erhalten.
+        </div>
+      </div>
+
+        <div class="form-group col-md-4">
+          <label for="wunsch"><b>Wunschberuf/ - branche </b></label>
+          <input type="text" name="abschluss" id="wunsch" max="3000-12-31"
+                 min="1000-01-01" class="form-control" placeholder="IT- Consultant" required>
+          <div class="invalid-feedback">
+            In welchem Bereich/Branche würden Sie gerne Arbeiten?
+          </div>
+        </div>
+
+
       </div>
 
       <div class="form-check py-2">
@@ -161,7 +170,10 @@
   </div>
 
 </div>
+
 <script>
+
+
   function change(){
 
     agb = $('#agbCheck');
@@ -175,7 +187,8 @@
     }
 
   }
-  $("#option1").attr('checked',true);
+
+  $("#option2").attr('checked',true);
 
   $('#agbCheck').on('change',change);
   $('#datenschutzCheck').on('change',change);
@@ -204,8 +217,10 @@
     })();
   </script>
 
+<script >
 
 
+</script>
 
 <script>
 ScrollReveal().reveal('.formdesign', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});

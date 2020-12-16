@@ -44,7 +44,7 @@ public class UploadController {
     System.out.println(auth);
 
     if(auth instanceof AnonymousAuthenticationToken){
-      return "redirect:/companyregistration";
+      return "redirect:/applicantregistration";
     }else {
       String username = ((UserDetails)auth.getPrincipal()).getUsername();
       User user = registrationService.findUserById(username);

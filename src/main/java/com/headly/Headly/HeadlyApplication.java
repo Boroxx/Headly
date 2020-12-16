@@ -59,7 +59,7 @@ public class HeadlyApplication implements CommandLineRunner {
 		professionService.registerProfession(profession2);
 		professionService.registerProfession(profession3);
 		professionService.registerProfession(profession4);
-/*
+
 
 		List<Jobpost> jobposts = new ArrayList<>();
 		for(int i= 1; i< 10; i++){
@@ -78,7 +78,7 @@ public class HeadlyApplication implements CommandLineRunner {
 		for (Jobpost jobpost : jobposts) {
 			postingService.registerPost(jobpost);
 		}
-		*/
+		
 
 
 

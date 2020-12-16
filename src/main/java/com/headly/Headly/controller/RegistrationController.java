@@ -47,6 +47,12 @@ public class RegistrationController {
     return"registration";
   }
 
+  @GetMapping("/applicantregistration")
+  public String applicantregistration(Model model){
+    model.addAttribute("user",new User());
+    return"registrationApplicant";
+  }
+
 
   @GetMapping("/registrationverified")
   public String verified(Model model){
@@ -77,7 +83,7 @@ public class RegistrationController {
 
 
   @PostMapping("/companyregistration")
-  public String makePost(@ModelAttribute User user, RedirectAttributes redirectAttributes, HttpServletRequest request){
+  public String makePostApplicant(@ModelAttribute User user, RedirectAttributes redirectAttributes, HttpServletRequest request){
 
     if(registrationService.findUserById(user.getEmail())!=null){
       redirectAttributes.addFlashAttribute("error","User vergeben");
@@ -100,6 +106,34 @@ public class RegistrationController {
       logger.info("Verification Email successfully send");
 
       return"redirect:/companyregistration";
+    }
+
+  }
+
+  @PostMapping("/applicantregistration")
+  public String makePost(@ModelAttribute User user, RedirectAttributes redirectAttributes, HttpServletRequest request){
+
+    if(registrationService.findUserById(user.getEmail())!=null){
+      redirectAttributes.addFlashAttribute("error","User vergeben");
+      logger.info("Useraccountname ist bereits in Datenbank vorhanden.");
+      return"redirect:/companyregistration";
+
+    }else {
+      System.out.println(javamailsender_mail);
+      String appurl =request.getServerName();
+      registrationService.registerNewAccount(user);
+      ConfirmationToken confirmationToken = new ConfirmationToken(user);
+      conformationTokenRepository.save(confirmationToken);
+      SimpleMailMessage mailMessage = new SimpleMailMessage();
+      mailMessage.setTo(user.getEmail());
+      mailMessage.setSubject("Headly - Registrierung vervollständigen!");
+      mailMessage.setFrom(javamailsender_mail);
+      mailMessage.setText("Um deinen Account freizuschalten klicke den folgenden Link: " + appurl + "/registrationConfirm?token=" +confirmationToken.getConfirmationToken());
+      redirectAttributes.addFlashAttribute("success","Registration war erfolgreich. Schaue in deinen Posteingang um deinen Account zu verifizieren.");
+      mailSenderService.sendMail(mailMessage);
+      logger.info("Verification Email successfully send");
+
+      return"redirect:/applicantregistration";
     }
 
   }
