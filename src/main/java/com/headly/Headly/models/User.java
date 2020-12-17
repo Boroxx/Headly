@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import java.util.Date;
 
 @Entity
 @Table(name="user_dat")
@@ -35,6 +36,8 @@ public class User {
   private String role;
   private String firstname;
   private String lastname;
+  private String abschluss;
+  private String work;
 
 
 

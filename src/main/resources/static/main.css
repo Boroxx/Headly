@@ -26,7 +26,7 @@ body, html {
     position: fixed;
     z-index: -1;
     object-fit: cover;
-    top: -100px;
+    top: 0px;
 
 
 }
