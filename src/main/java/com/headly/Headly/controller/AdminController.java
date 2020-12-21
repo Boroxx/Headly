@@ -25,6 +25,7 @@ public class AdminController {
 
   @GetMapping("/applicationoverview")
   public String bewerbungen(Model model){
+
     model.addAttribute("applications",applicationModelService.loadApplicationModelListForApModelDto());
     logger.trace("Filter ApplicationModelDto's");
     return "applicationoverview";
