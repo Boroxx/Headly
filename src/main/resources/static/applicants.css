@@ -47,3 +47,39 @@ body, html {
     margin-top: 10%;
     border: none;
 }
+
+.studiumbeendet{
+    background-color:white;
+    margin-top: 15%;
+    margin-bottom:15%;
+}
+
+.sogehts{
+    color:white;
+    background-color:#343a40;
+    padding-top: 10%;
+    padding-bottom:10%
+}
+
+.sogehts > .container> .row {
+    margin-top: 5rem;
+}
+
+.ueberuns{
+    background-color: gainsboro;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+
+.tutorialimages{
+    margin-left: 2rem;
+    border-radius: 3%;
+}
+
+@media (max-width: 575.98px) {
+    .tutorialimages {
+        width:100%;
+        margin-left: 0rem;
+    }
+
+}

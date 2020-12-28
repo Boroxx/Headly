@@ -129,7 +129,7 @@
       <div class="form-group col-md-4">
         <label for="abschluss"><b>Abschluss/ Angestrebter Abschluss </b></label>
         <input type="date" name="abschluss" id="abschluss" max="3000-12-31"
-               min="1000-01-01" class="form-control" required th:field="*{abschluss}">
+               min="1000-01-01" class="form-control" required th:field="*{abschluss}" placeholder="tt.mm.jjjj">
         <div class="invalid-feedback">
           Bitte geben Sie hier an wann Sie ihren Abschluss erhalten haben, bzw. erhalten.
         </div>
@@ -149,7 +149,7 @@
 
       <div class="form-check py-2">
         <input type="checkbox" class="form-check-input" id="datenschutzCheck">
-        <label class="form-check-label" for="datenschutzCheck"><a href="#">Datenschutzerklärung</a> akzeptieren.</label>
+        <label class="form-check-label" for="datenschutzCheck"><a href="/datenschutz">Datenschutzerklärung</a> akzeptieren.</label>
       </div>
 
       <div class="form-check py-2">

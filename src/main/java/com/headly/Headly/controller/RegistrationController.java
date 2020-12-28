@@ -128,7 +128,7 @@ public class RegistrationController {
       mailMessage.setTo(user.getEmail());
       mailMessage.setSubject("Headly - Registrierung vervollständigen!");
       mailMessage.setFrom(javamailsender_mail);
-      mailMessage.setText("Um deinen Account freizuschalten klicke den folgenden Link: " + appurl + "/registrationConfirm?token=" +confirmationToken.getConfirmationToken());
+      mailMessage.setText("Um deinen Account freizuschalten klicke den folgenden Link: " + appurl + "/registrationConfirm?token=" +confirmationToken.getConfirmationToken()+"\n Bitte antworten Sie nicht auf diese Email" );
       redirectAttributes.addFlashAttribute("success","Registration war erfolgreich. Schaue in deinen Posteingang um deinen Account zu verifizieren.");
       mailSenderService.sendMail(mailMessage);
       logger.info("Verification Email successfully send");

@@ -16,7 +16,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 public class HomeController {
@@ -35,7 +38,10 @@ public class HomeController {
   @GetMapping("/")
   public String home(Model model){
     List<Jobpost> jobposts = postingService.loadAllJobs();
-    model.addAttribute("jobposts", jobposts);
+    Collections.shuffle(jobposts);
+    List<Jobpost> firstsixjobs = jobposts.stream().limit(6).collect(Collectors.toList());
+
+    model.addAttribute("jobposts", firstsixjobs);
 
     return "index";
   }
