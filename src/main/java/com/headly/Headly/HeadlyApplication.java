@@ -34,6 +34,7 @@ public class HeadlyApplication implements CommandLineRunner {
 	@Override
 	public void run(String... args) throws Exception {
 
+	/*
 			User applicant = User.builder().role("BEWERBER").city("moenchengladbach").firstname("Boris").lastname("Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
 							.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
 			User company = User.builder().role("UNTERNEHMEN").city("moenchengladbach").companyname("headly").contactperson("Herr Tenelsen").email("test@test.de").housenumber("40")
@@ -48,7 +49,7 @@ public class HeadlyApplication implements CommandLineRunner {
 				registrationService.enableUser(company);
 
 			}
-
+*/
 
 
 		Profession profession1 = new Profession(1,"Bauwesen");
@@ -60,10 +61,10 @@ public class HeadlyApplication implements CommandLineRunner {
 		professionService.registerProfession(profession3);
 		professionService.registerProfession(profession4);
 
-
+/*
 
 		List<Jobpost> jobposts = new ArrayList<>();
-		for(int i= 1; i< 10; i++){
+		for(int i= 1; i< 5; i++){
 			jobposts.add(new Jobpost(i,
 					1,
 					null,
@@ -81,7 +82,7 @@ public class HeadlyApplication implements CommandLineRunner {
 		}
 
 
-
+*/
 
 
 	}
