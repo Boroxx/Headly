@@ -70,7 +70,7 @@
 
       </div>
 
-      <button type="submit" class="btn btn-outline-dark">Bewerbung abschicken</button>
+      <button type="submit"  class="btn btn-outline-dark">Bewerbung abschicken</button>
 
     </form>
   </div>
@@ -79,13 +79,20 @@
 
 <script>
   let fileInput = document.querySelector('input');
+
+  $("#inputFile").change(function(){
+    $('#droptext').text('PDF-Datei akzeptiert! Bewerbung kann abgeschickt werden');
+    $('#droptext').css('font-size','large');
+    $('.dropContainer-text').css('color','#32cd32');
+  });
   function handleFileSelect(evt) {
     evt.stopPropagation();
     evt.preventDefault();
 
     var files = evt.dataTransfer.files;
     fileInput.files = files;
-    $('#droptext').text('PDF-Datei akzeptiert!');
+    $('#droptext').text('PDF-Datei akzeptiert! Bewerbung kann abgeschickt werden');
+    $('#droptext').css('font-size','large');
     $('.dropContainer-text').css('color','#32cd32');
 
 
@@ -99,6 +106,8 @@
   var dropZone = document.getElementById('dropContainer');
   dropZone.addEventListener('dragover', handleDragOver, false);
   dropZone.addEventListener('drop', handleFileSelect, false);
+
+
 
 </script>
 
