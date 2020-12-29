@@ -54,3 +54,16 @@ body, html {
     margin-top: 10%;
     border: none;
 }
+
+.text-center > p{
+
+    font-size: xx-large;
+}
+
+@media (max-width: 575.98px) {
+
+    .text-center > p{
+
+        font-size: large;
+    }
+}

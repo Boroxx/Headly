@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/all.css">
+    <link rel="stylesheet" href="/fonts.css">
+    <link rel="stylesheet" href="/mybewerbung.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
+    <title>Headly - Overview</title>
+</head>
+
+<body>
+
+<div th:replace="fragmentheader :: header">...</div>
+
+<div class="d-flex justify-content-between tool">
+
+    <h3>Hier können Sie in den Status ihrer Bewerbung einsehen. Falls noch keine Bewerbung vorhanden ist, schauen Sie in unserer <a style="color:darkseagreen" href="/search">Jobsuche</a> nach Stellen. </h3>
+
+</div>
+
+
+<div class="jobs">
+
+        <div class="row">
+
+
+                <div class="card cardStellen ml-5 mb-5" th:if="${applicationDto!=null}">
+                    <div class="card-body">
+                        <h5 class="card-title"><b><span th:text="${applicationDto.jobname}"></span></b></h5>
+                        <p class="card-text">
+                        <p><b>Bewerbungs-Identifkationsnummer:</b> <span th:text="${applicationDto.applicationid}"></span>
+                        <p><b>Name:</b> <span th:text="${applicationDto.userfullname}"></span>
+                        <p><b>Email:</b> <span th:text="${applicationDto.usermail}"></span>
+                        </p>
+
+                        <p>
+                            <b>Status:</b> <span th:if="${applicationDto.status == 0}" style="color:orange">In Bearbeitung</span><span th:if="${applicationDto.status == 1}" style="color:green">Erfolgreiche Vermittlung</span>
+                        </p>
+                        <a class="btn btn-dark pb-2" th:href="@{'/jobdetails/'+ ${applicationDto.jobid} }" >Zum Job</a>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+</div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -26,6 +26,7 @@ public class ApplicationModel {
   private UUID applicationid;
   private int userid;
   private String jobid;
+  private int status;
   @Lob
   private byte[] lebenslauf_pdf;
 }

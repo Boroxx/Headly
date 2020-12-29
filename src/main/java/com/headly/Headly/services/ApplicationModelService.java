@@ -29,9 +29,14 @@ public class ApplicationModelService {
   private UserRepository userRepository;
 
   public void registerApplication(User user, ApplicationDto applicationDto,String jobid) throws IOException {
-    ApplicationModel applicationModel = ApplicationModel.builder()
-            .jobid(jobid).lebenslauf_pdf(applicationDto.getFile().getBytes()).userid(user.getId()).build();
-    applicationModelRepository.save(applicationModel);
+    if(applicationModelRepository.findByUserid(user.getId())==null){
+      ApplicationModel applicationModel = ApplicationModel.builder()
+              .jobid(jobid).lebenslauf_pdf(applicationDto.getFile().getBytes()).userid(user.getId()).status(0).build();
+      applicationModelRepository.save(applicationModel);
+    }else {
+      System.out.println("Zuviele Bewerbungen");
+    }
+
   }
 
   public List<ApplicationModel> loadApplicationModelList(){
@@ -55,7 +60,7 @@ public class ApplicationModelService {
         ApplicationOverviewDto applicationOverviewDto = ApplicationOverviewDto.builder()
                 .applicationid(model.getApplicationid().toString())
                 .jobid(model.getJobid())
-                .userid(String.valueOf(model.getUserid())).jobname(jobname).userfullname(userfullname).usermail(email).build();
+                .userid(String.valueOf(model.getUserid())).jobname(jobname).userfullname(userfullname).usermail(email).status(model.getStatus()).build();
         applicationOverviewDtos.add(applicationOverviewDto);
       }
 
@@ -63,6 +68,30 @@ public class ApplicationModelService {
 
     }
     return applicationOverviewDtos;
+  }
+
+  public ApplicationOverviewDto loadApplicationOverviewDtoByEmail(User user){
+    ApplicationModel applicationModel = applicationModelRepository.findByUserid(user.getId());
+    ApplicationOverviewDto applicationOverviewDto = new ApplicationOverviewDto();
+
+
+
+
+    if(applicationModel!=null){
+      String jobname = jobPostRepository.findById(Integer.parseInt(applicationModel.getJobid())).getJobname();
+      String userfullname = user.getFirstname() + " "+ user.getLastname();
+      String email = user.getEmail();
+
+       applicationOverviewDto = ApplicationOverviewDto.builder()
+              .applicationid(applicationModel.getApplicationid().toString())
+              .jobid(applicationModel.getJobid())
+              .userid(String.valueOf(applicationModel.getUserid())).jobname(jobname).userfullname(userfullname).usermail(email).status(applicationModel.getStatus()).build();
+
+    }
+
+    return applicationOverviewDto;
+
+
   }
 
 

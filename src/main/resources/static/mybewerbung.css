@@ -1,0 +1,16 @@
+
+h3{
+    padding: 2rem 2rem 2rem 2rem;
+}
+@media (max-width: 575.98px) {
+
+    h3{
+        font-size: large;
+        padding: 2rem 2rem 2rem 2rem;
+    }
+
+    .jobs{
+
+    }
+
+}

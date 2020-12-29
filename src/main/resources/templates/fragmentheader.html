@@ -30,6 +30,7 @@
                 <li class=""><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/applicantregistration">Registrierung</a></li>
                 <li><a class="nav-item nav-link"sec:authorize="hasRole('ROLE_UNTERNEHMEN')" href="/ausschreibungen">Dashboard</a></li>
                 <li class=""><a class="nav-item nav-link" sec:authorize="!isAuthenticated()" href="/login" >Login</a></li>
+                <li><a class="nav-item nav-link"sec:authorize="hasRole('ROLE_BEWERBER')" style="color:darkseagreen" href="/myApplicaiton">Meine Bewerbungen</a></li>
                 <li class=""><a class="nav-item nav-link" sec:authorize="hasRole('ROLE_BEWERBER')" href="/myApplciantProfile" >Mein Profil</a></li>
                 <li class=""><a class="nav-item nav-link" sec:authorize="isAuthenticated()" href="/logout" >Logout</a></li>
             </ul>

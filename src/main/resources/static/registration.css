@@ -33,6 +33,12 @@
 
 }
 
+@media (max-width: 575.98px) {
+    .formdesign {
+        margin: 0 0 0 0;
+    }
+}
+
 h1{
     font-family: 'Marvel', sans-serif;
 

@@ -7,4 +7,6 @@ import java.util.UUID;
 
 public interface ApplicationModelRepository extends JpaRepository<ApplicationModel, Long> {
   ApplicationModel findByApplicationid(UUID applicationid);
+
+  ApplicationModel findByUserid(int id);
 }

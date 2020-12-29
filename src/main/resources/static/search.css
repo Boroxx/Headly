@@ -160,12 +160,36 @@ background-color: gainsboro;
 
     }
     .jobmodulecontainer{
-        padding:1rem 1rem 1rem 1rem;
+        padding:3rem 3rem 3rem 3rem;
 
     }
     .flipjobs{
-        padding:1.2rem 0 0 0;
+        padding: 0;
     }
+
+    .flip-div:hover .flip-inner {
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+
+    }
+
+    .flip-div{
+        width: 20.0rem;
+        height:20.0rem;
+        padding-bottom: 2rem;
+
+
+    }
+
+    .flip-front h1{
+        color:white;
+        margin-top: 30%;
+
+
+    }
+
+
 
 }
 
