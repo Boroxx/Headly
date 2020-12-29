@@ -31,7 +31,11 @@ public class ApplicationModelService {
   public void registerApplication(User user, ApplicationDto applicationDto,String jobid) throws IOException {
     if(applicationModelRepository.findByUserid(user.getId())==null){
       ApplicationModel applicationModel = ApplicationModel.builder()
-              .jobid(jobid).lebenslauf_pdf(applicationDto.getFile().getBytes()).userid(user.getId()).status(0).build();
+              .jobid(jobid)
+              .lebenslauf_pdf(applicationDto.getFile().getBytes())
+              .userid(user.getId())
+              .status(0)
+              .build();
       applicationModelRepository.save(applicationModel);
     }else {
       System.out.println("Zuviele Bewerbungen");
