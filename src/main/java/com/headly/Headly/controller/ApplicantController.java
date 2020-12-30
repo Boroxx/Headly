@@ -5,6 +5,8 @@ import com.headly.Headly.dto.ApplicationOverviewDto;
 import com.headly.Headly.models.User;
 import com.headly.Headly.services.ApplicationModelService;
 import com.headly.Headly.services.RegistrationService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -21,11 +23,14 @@ public class ApplicantController {
     @Autowired
     ApplicationModelService applicationModelService;
 
+    Logger logger = LoggerFactory.getLogger(ApplicantController.class);
+
     @GetMapping("/myApplciantProfile")
     public String myprofile(Model model){
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         org.springframework.security.core.userdetails.User usercore = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
+        logger.info(usercore.getUsername());
         String username = usercore.getUsername();
         User user = registrationService.findUserById(username);
         model.addAttribute("user",user);
@@ -38,6 +43,7 @@ public class ApplicantController {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         System.out.println(auth);
         org.springframework.security.core.userdetails.User usercore = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
+        logger.info(usercore.getUsername());
         String username = usercore.getUsername();
         User user = registrationService.findUserById(username);
         ApplicationOverviewDto applicationOverviewDto = applicationModelService.loadApplicationOverviewDtoByEmail(user);
