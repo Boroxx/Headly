@@ -36,6 +36,7 @@ public class ApplicantController {
     @GetMapping("/myApplicaiton")
     public String myapplication(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        System.out.println(auth);
         org.springframework.security.core.userdetails.User usercore = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
         String username = usercore.getUsername();
         User user = registrationService.findUserById(username);
