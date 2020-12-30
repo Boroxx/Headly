@@ -37,13 +37,13 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/admin").hasAnyRole("UNTERNEHMEN","BEWERBER")
 
 
-            .and().formLogin().loginPage("/login").failureUrl("/loginerror").loginProcessingUrl("/login").defaultSuccessUrl("/loginredirect").and().requiresChannel()
+            .and().formLogin().loginPage("/login").failureUrl("/loginerror").loginProcessingUrl("/login").defaultSuccessUrl("/").and().requiresChannel()
             .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
             .requiresSecure();
     ;;
 
 
-    http.logout().deleteCookies("remove").invalidateHttpSession(false)
+    http.logout().deleteCookies("JSESSIONID").invalidateHttpSession(true)
             .logoutUrl("/logout").logoutSuccessUrl("/");
   }
 
