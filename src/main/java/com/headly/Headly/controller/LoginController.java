@@ -27,16 +27,6 @@ public class LoginController {
 
     @GetMapping("/loginredirect")
     public String redirection(){
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = ((UserDetails)auth.getPrincipal()).getUsername();
-        User user = registrationService.findUserById(username);
-        if(user.getRole().equals("ROLE_UNTERNEHMEN")){
-            return "redirect:/ausschreibungen";
-        }
-        if(user.getRole().equals("ROLE_BEWERBER")){
-            return "redirect:/search";
-        }
-        else
             return "redirect:/";
     }
 
