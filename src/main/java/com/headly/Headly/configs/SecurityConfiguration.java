@@ -27,9 +27,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
   }
   @Override
   protected void configure(HttpSecurity http) throws Exception {
-    http.requiresChannel()
-            .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
-            .requiresSecure();
 
     http.cors().and().csrf().disable();
     http.authorizeRequests().antMatchers("/").permitAll()
@@ -38,7 +35,10 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .antMatchers("/admin").hasAnyRole("UNTERNEHMEN","BEWERBER")
 
 
-            .and().formLogin().loginPage("/login").failureUrl("/loginerror").loginProcessingUrl("/login").defaultSuccessUrl("/loginredirect");;
+            .and().formLogin().loginPage("/login").failureUrl("/loginerror").loginProcessingUrl("/login").defaultSuccessUrl("/loginredirect").and().requiresChannel()
+            .requestMatchers(r -> r.getHeader("X-Forwarded-Proto") != null)
+            .requiresSecure();
+    ;;
 
 
     http.logout().deleteCookies("remove").invalidateHttpSession(false)
