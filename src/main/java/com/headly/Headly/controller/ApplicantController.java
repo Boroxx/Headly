@@ -25,7 +25,8 @@ public class ApplicantController {
     public String myprofile(Model model){
 
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = ((UserDetails)auth.getPrincipal()).getUsername();
+        org.springframework.security.core.userdetails.User usercore = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
+        String username = usercore.getUsername();
         User user = registrationService.findUserById(username);
         model.addAttribute("user",user);
         return "myApplicantProfile";
@@ -35,7 +36,8 @@ public class ApplicantController {
     @GetMapping("/myApplicaiton")
     public String myapplication(Model model){
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        String username = ((UserDetails)auth.getPrincipal()).getUsername();
+        org.springframework.security.core.userdetails.User usercore = (org.springframework.security.core.userdetails.User)auth.getPrincipal();
+        String username = usercore.getUsername();
         User user = registrationService.findUserById(username);
         ApplicationOverviewDto applicationOverviewDto = applicationModelService.loadApplicationOverviewDtoByEmail(user);
         model.addAttribute("applicationDto", applicationOverviewDto);
