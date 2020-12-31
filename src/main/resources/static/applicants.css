@@ -28,6 +28,7 @@ body, html {
     h3{
         font-size: 1.1rem;
     }
+    
 
 
 
@@ -102,3 +103,32 @@ body, html {
     }
 
 }
+
+
+.FAQcontainer{
+    background-color: white;
+    padding-top: 15%;
+    padding-bottom: 15%;
+}
+.FAQ{
+    border: 1px solid gainsboro;
+}
+.question{
+    background-color: white;
+    padding: 1rem 0 1rem 1rem ;
+}
+
+.questionlink{
+color:black;
+}
+
+.questionlink:hover{
+    color: darkseagreen;
+
+}
+
+.triangle-down{
+    color:darkseagreen;
+    font-size: 1rem;
+}
+
