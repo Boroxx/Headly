@@ -21,31 +21,33 @@
 <div th:replace="fragmentheader :: header">...</div>
 
 <div class="bg background-reveal">
-    <div class="row m-0 home_slogan_left">
-        <div class="col-lg-12 col-sm-12 p-0">
-            <div class="p-5 ">
 
-                <h1>
-                    Du hast gerade dein Studium oder deine Ausbildung abgeschlossen oder du bist kurz davor?<br>
-                    Wir helfen dir dabei deinen Traumjob zu finden.<br>
-                    Deine Vorteile:
+    <div class="row m-0" >
+        <div class="col-lg-12 col-sm-12 p-0">
+            <div class="scroll  home_slogan_left">
+                <div class="p-5 ">
+
+
+                <h1 class="text-center">
+                    Du hast dein Studium oder deine Ausbildung abgeschlossen und suchst einen Job?
                 </h1>
+                    <hr style="border-color:white!important; width:20%">
+                    <div class="d-flex justify-content-center">
                 <ul class="abstand">
-                    <li><h3><i class="fas fa-2x fa-smile" style="color: white;vertical-align: middle"></i> <span>Angenehme Jobsuche - such’ dir eine Stelle aus, lade Deinen Lebenslauf hoch und wir kümmern uns um den Rest.</span>
+                    <li><h3><i class="fas fa-2x fa-copy" style="color: white;vertical-align: middle"></i> <span>Bewirb dich mit nur einem Klick auf deinen Wunschberuf, lade deinen Lebenslauf hoch und wir kümmern uns um den Rest!</span>
                     </h3></li>
-                    <li><h3><i class="fas fa-2x fa-thumbtack" style="color: white;vertical-align: middle"></i> <span>Wir sind spezialisiert auf die Stellenbesetzung in Mönchengladbach und Umgebung.</span>
+                    <li><h3><i class="fas fa-2x fa-euro-sign" style="color: white;vertical-align: middle"></i> <span>Als Dankeschön erhälst du von Headly <b style="color:darkseagreen">200 Euro</b>  nach erfolgreicher Vermittlung</span>
                     </h3></li>
-                    <li><h3><i class="fas fa-2x fa-euro-sign" style="color: white;vertical-align: middle"></i> <span>Du siehst schon vor der Bewerbung dein zukünftiges Gehalt.</span>
+                    <li><h3><i class="fas fa-2x fa-address-card" style="color: white;vertical-align: middle"></i> <span>Registriere dich jetzt <a style="color:darkseagreen" href="/applicantregistration">hier</a>! Falls du Fragen hast schau' in unserem <a>FAQ</a> nach.</span>
                     </h3></li>
                 </ul>
-
-                <h2 class="pt-5"><a style="color: white!important" href="/applicantregistration">Jetzt kostenlos
-                    registrieren</a></h2>
-
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
 <div class="container scrollbottom scroll studiumbeendet" style="">
     <h1 class="display-5 mb-4"><b>Du hast dein Studium oder deine Ausbildung noch nicht beendet</b></h1>
 
@@ -67,7 +69,7 @@
             <div class="col-sm-6 py-5" style="border-right: 1px solid lightgrey;">
                 <p class="lead">
                     Nachdem du dich bei uns registriert hast, kannst du unter der Jobsuche nach einem Job deiner Wahl
-                    suchen. In dem Bild rechts kannst du sehen wie die Jobsuche aussieht.
+                    suchen. In dem folgenden Bild kannst du sehen wie die Jobsuche aussieht.
                     Hier kannst du nach einem Jobnamen oder nach einer Branche suchen, die zu deinem Wunschjob zutrifft.
                 </p>
             </div>
@@ -134,7 +136,7 @@
 
 <script>
     ScrollReveal().reveal('.bg', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
-    ScrollReveal().reveal('.scroll', {delay: 300, duration: 3000, origin: 'right', distance: '400px'});
+    ScrollReveal().reveal('.scroll', {delay: 300, duration: 2000, origin: 'bottom', distance: '200px'});
     ScrollReveal().reveal('.scrollbottom', {delay: 300, duration: 2000, origin: 'bottom', distance: '0px'});
 </script>
 

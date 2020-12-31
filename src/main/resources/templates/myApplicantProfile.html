@@ -35,14 +35,7 @@
                 <th>Email:</th>
                 <td><span th:text="${user.getEmail()}"></span></td>
             </tr>
-            <tr>
-                <th>Straße:</th>
-                <td><span th:text="${user.getStreet()}"></span></td>
-            </tr>
-            <tr>
-                <th>Hausnummer:</th>
-                <td><span th:text="${user.getHousenumber()}"></span></td>
-            </tr>
+
             <tr>
                 <th>Postleitzahl:</th>
                 <td><span th:text="${user.getZipcode()}"></span></td>
@@ -50,6 +43,15 @@
             <tr>
                 <th>Stadt:</th>
                 <td><span th:text="${user.getCity()}"></span></td>
+            </tr>
+
+            <tr>
+                <th>Abschluss/ Angestrebter Abschluss:</th>
+                <td><span th:text="${user.getAbschluss()}"></span></td>
+            </tr>
+            <tr>
+                <th>Wunschberuf/Branche :</th>
+                <td><span th:text="${user.getWork()}"></span></td>
             </tr>
         </table>
 
