@@ -1,0 +1,29 @@
+.pwforogotcontainer{
+   margin:3rem;
+
+}
+
+.pwborder{
+    padding: 3rem 3rem 3rem 3rem;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    width:50%;
+}
+
+.paragraph{
+   padding:1rem;
+
+}
+
+@media (max-width: 575.98px) {
+
+    .pwforogotcontainer{
+        margin:1rem;
+
+    }
+
+    .pwborder{
+
+        width:100%;
+    }
+
+}

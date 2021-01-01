@@ -46,6 +46,7 @@ public class RegistrationService {
   }
 
   public void saveUser(User user){
+
     userRepository.save(user);
   }
 
@@ -53,6 +54,8 @@ public class RegistrationService {
     user.setEnabled(true);
     userRepository.save(user);
   }
+
+
 
   public User findUserById(String username){
     return userRepository.findByEmail(username);

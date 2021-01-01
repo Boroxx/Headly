@@ -7,6 +7,7 @@ import com.headly.Headly.services.PostingService;
 import com.headly.Headly.services.ProfessionService;
 import com.headly.Headly.services.RegistrationService;
 import lombok.Builder;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -107,4 +108,6 @@ public class HeadlyApplication implements CommandLineRunner {
 
 
 	}
+
+
 }
