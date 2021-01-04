@@ -15,4 +15,10 @@ public class LawController {
     public String impressum(){
         return "Impressum";
     }
+
+    @GetMapping("/agb")
+    public String agb(){
+        return"agb";
+    }
+
 }
