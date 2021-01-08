@@ -50,8 +50,8 @@ public class HeadlyApplication implements CommandLineRunner {
 				registrationService.enableUser(company);
 
 			}
-*/
 
+	*/
 
 		Profession profession1 = new Profession(1,"Bauwesen");
 		Profession profession2 = new Profession(2,"Dienstleistung");

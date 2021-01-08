@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/fonts.css">
     <link rel="stylesheet" href="/applicationoverview.css">
-
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <title>Bewerbungsübersicht</title>
 </head>
 <body>
@@ -17,31 +19,93 @@
 <div th:replace="fragmentheader :: header">...</div>
 
 
-    <div class="overview-table">
-        <h1>Aktuelle Bewerbungen</h1>
-        <table class="table" >
-            <thead>
-              <tr>
-                <th scope="col">Bewerbungs-ID</th>
-                <th scope="col">Nutzer der sich bewirbt</th>
-                <th scope="col">Job auf den beworben wurde:</th>
-                  <th scope="col">Email des Bewerbers</th>
-                <th scope="col">Lebenslauf-Link</th>
-            
-              </tr>
-            </thead>
-            <tbody th:each="overview: ${applications}">
-              <tr >
-                  <td><span th:text="${overview.applicationid}"></span></td>
-                  <td>ID: <span th:text="${overview.userid}"></span> Name:<span th:text="${overview.userfullname}"></span></td>
-                  <td>JobID: <span th:text=" ${overview.jobid}"></span> Jobname:<span th:text=" ${overview.jobname}"></span>  </td>
-                  <td><span th:text="${overview.usermail}"></span></td>
-                  <td><a th:href="@{'/admin/' + ${overview.applicationid}}" class="btn btn-dark">Zum Lebenslauf</a> </td>
-              </tr>
-            </tbody>
-          </table>
+
+
+    <div class="d-flex flex-row">
+
+
+
+        <div class="overview-table">
+            <h1>Aktuelle Bewerbungen</h1>
+            <table class="table" >
+                <thead>
+                <tr>
+                    <th scope="col">Bewerbungs-ID</th>
+                    <th scope="col">Nutzer der sich bewirbt</th>
+                    <th scope="col">Job auf den beworben wurde:</th>
+                    <th scope="col">Email des Bewerbers</th>
+                    <th scope="col">Lebenslauf-Link</th>
+
+                </tr>
+                </thead>
+                <tbody th:each="overview: ${applications}">
+                <tr >
+                    <td><span th:text="${overview.applicationid}"></span></td>
+                    <td>ID: <span th:text="${overview.userid}"></span> Name:<span th:text="${overview.userfullname}"></span></td>
+                    <td>JobID: <span th:text=" ${overview.jobid}"></span> Jobname:<span th:text=" ${overview.jobname}"></span>  </td>
+                    <td><span th:text="${overview.usermail}"></span></td>
+                    <td><a th:href="@{'/admin/' + ${overview.applicationid}}" class="btn btn-dark">Zum Lebenslauf</a> </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="new-registrated-applicants" >
+            <h2 class="mb-3">Neue Registrierungen - Bewerber</h2>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Branche</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td>Mail</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>Informatik</td>
+                </tr>
+                </tbody>
+            </table>
+
+
+        </div>
+
+        <div class="new-registrated-company">
+            <h2 class="mb-3">Neue Registrierungen - Unternehmen</h2>
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">Mail</th>
+                    <th scope="col">Firstname</th>
+                    <th scope="col">LastName</th>
+                    <th scope="col">Branche</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+
+                    <td>Mail</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>Informatik</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 
+<script>
+$( function() {
+$( ".new-registrated-applicants" ).draggable({scroll: false});
+$( ".new-registrated-company" ).draggable({scroll: false});
+    $( ".overview-table" ).draggable({scroll: false});
+} );
+</script>
     
 </body>
 </html>

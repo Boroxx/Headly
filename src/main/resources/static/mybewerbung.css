@@ -19,6 +19,26 @@ h3{
     margin: 0.8rem;
 }
 
+.check{
+    background-color: white;
+    border: 2px solid grey;
+    position:absolute;
+    padding: 0.5rem;
+    left: 40%;
+    top: 40%;
+}
+.bin:hover{
+    color:#ff6961;
+}
+.check-field{
+    padding: 2rem;
+}
+
+.close{
+    padding:0.4rem;
+}
+
+
 .lebenslauf-liste{
     margin: 0.8rem;
 }

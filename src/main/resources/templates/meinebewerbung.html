@@ -19,100 +19,127 @@
 <div th:replace="fragmentheader :: header">...</div>
 
 
-
-
 <div class="jobs">
     <div class="d-flex justify-content-between tool">
 
-        <h3>Hier können Sie in den Status ihrer Bewerbung einsehen. Falls noch keine Bewerbung vorhanden ist, schauen Sie in unserer <a style="color:darkseagreen" href="/search">Jobsuche</a> nach Stellen. </h3>
+        <h3>Hier können Sie in den Status ihrer Bewerbung einsehen. Falls noch keine Bewerbung vorhanden ist, schauen
+            Sie in unserer <a style="color:darkseagreen" href="/search">Jobsuche</a> nach Stellen. </h3>
 
     </div>
-        <div class="row">
+    <div class="row">
 
 
-                <div class="card cardStellen ml-5 mb-5" th:if="${applicationDto!=null}">
-                    <div class="card-body">
-                        <h5 class="card-title"><b><span th:text="${applicationDto.jobname}"></span></b></h5>
-                        <p class="card-text">
-                        <p><b>Bewerbungs-Identifkationsnummer:</b> <span th:text="${applicationDto.applicationid}"></span>
-                        <p><b>Name:</b> <span th:text="${applicationDto.userfullname}"></span>
-                        <p><b>Email:</b> <span th:text="${applicationDto.usermail}"></span>
-                        </p>
+        <div class="card cardStellen ml-5 mb-5" th:if="${applicationDto!=null}">
+            <div class="card-body">
+                <h5 class="card-title"><b><span th:text="${applicationDto.jobname}"></span></b></h5>
+                <p class="card-text">
+                <p><b>Bewerbungs-Identifkationsnummer:</b> <span th:text="${applicationDto.applicationid}"></span>
+                <p><b>Name:</b> <span th:text="${applicationDto.userfullname}"></span>
+                <p><b>Email:</b> <span th:text="${applicationDto.usermail}"></span>
+                </p>
 
-                        <p>
-                            <b>Status:</b> <span th:if="${applicationDto.status == 0}" style="color:orange">In Bearbeitung</span><span th:if="${applicationDto.status == 1}" style="color:green">Erfolgreiche Vermittlung</span>
-                        </p>
-                        <a class="btn btn-dark pb-2" th:href="@{'/jobdetails/'+ ${applicationDto.jobid} }" >Zum Job</a>
-
-                    </div>
-                </div>
+                <p>
+                    <b>Status:</b> <span th:if="${applicationDto.status == 0}"
+                                         style="color:orange">In Bearbeitung</span><span
+                        th:if="${applicationDto.status == 1}" style="color:green">Erfolgreiche Vermittlung</span>
+                </p>
+                <a class="btn btn-dark pb-2" th:href="@{'/jobdetails/'+ ${applicationDto.jobid} }">Zum Job</a>
 
             </div>
+        </div>
+
+    </div>
 </div>
 
 <div class="lebenslauf">
 
     <div class="lebenslauf-liste" th:if="${isUploaded}">
-        <h2> Hier finden Sie ihren Lebenslauf!</h2>
-        <h2> <a style="color:darkseagreen; padding:2rem;" href="/applicationpdf"> - Lebenslauf </a> </h2>
+        <div class="d-flex justify-content-end">
+            <span class="bin" onclick="deleteCheck()"><i class="fas fa-2x fa-trash-alt"></i></span>
+        </div>
+        <div>
+            <h2> Hier finden Sie ihren Lebenslauf!</h2>
+            <h2><a style="color:darkseagreen; padding:2rem;" href="/applicationpdf"> - Lebenslauf </a></h2>
+        </div>
+
+
+
+
+    </div>
+    <div class="check">
+        <div class="d-flex justify-content-end">
+            <i class="fas fa-2x fa-times"> </i>
+        </div>
+        <div class="check-field">
+            <p><b>Wollen Sie ihren Lebenslauf wirklich Löschen?</b></p>
+        </div>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-danger" href="/deleteLebenslauf">Ja</a>
+        </div>
+
     </div>
 
 
+    <form method="post" th:action="@{'/myApplication'}" th:object="${lebenslaufDto}" class="upload"
+          enctype="multipart/form-data">
 
+        <div class="d-flex justify-content-between tool">
 
+            <h3>Laden Sie hier ihren Lebenslauf hoch. So können wir Ihnen, auf Sie individuell angepasste Jobvorschläge,
+                liefern! </h3>
 
+        </div>
+        <div class="form-row formhide">
+            <div class="form-group col-md-12 ">
+                <p>Laden Sie hier ihren Lebenslauf per <b>Drag and Drop</b> hoch! (oder klicken Sie auf <b>Auswählen</b>.)
+                </p>
 
-        <form method="post" th:action="@{'/myApplication'}" th:object="${lebenslaufDto}" class="upload" enctype="multipart/form-data">
+                <div class="dropContainer" id="dropContainer">
 
-            <div class="d-flex justify-content-between tool">
-
-                <h3>Laden Sie hier ihren Lebenslauf hoch. So können wir Ihnen, auf Sie individuell angepasste Jobvorschläge,  liefern! </h3>
-
-            </div>
-            <div class="form-row formhide">
-                <div class="form-group col-md-12 "  >
-                    <p>Laden Sie hier ihren Lebenslauf per <b>Drag and Drop</b> hoch! (oder klicken Sie auf <b>Auswählen</b>.)</p>
-
-                    <div class="dropContainer" id="dropContainer">
-
-                        <div class="dropContainer-text">
-                            <p><i class="icon fas fa-4x fa-file-pdf"></i></p>
-                            <p id="droptext">Drop Here</p>
-                        </div>
-
+                    <div class="dropContainer-text">
+                        <p><i class="icon fas fa-4x fa-file-pdf"></i></p>
+                        <p id="droptext">Drop Here</p>
                     </div>
 
-                    <label  id="inputFileLabel" class="btn btn-dark my-3" for="inputFile">Auswählen
-                        <input type="file" style="display: none" class="form-control" id="inputFile" th:field="*{multipartFile}" placeholder="max@mustermann.de">
-                    </label>
                 </div>
 
+                <label id="inputFileLabel" class="btn btn-dark my-3" for="inputFile">Auswählen
+                    <input type="file" style="display: none" class="form-control" id="inputFile"
+                           th:field="*{multipartFile}" placeholder="max@mustermann.de">
+                </label>
             </div>
 
-            <button type="submit"  class="btn btn-outline-dark">Lebenslauf hochladen</button>
-        </form>
+        </div>
 
-    </div>
+        <button type="submit" class="btn btn-outline-dark">Lebenslauf hochladen</button>
+    </form>
 
+</div>
 
 
 <script th:inline="javascript">
     /*<![CDATA[*/
 
     var uploaded = /*[[${isUploaded}]]*/ 'false';
+    var check =$('.check');
 
 
-    console.log(uploaded)
+        check.hide();
 
-    if(uploaded){
+
+
+    console.log(uploaded);
+
+    if (uploaded) {
         $('form').hide();
-    }else{
+    } else {
         let fileInput = document.querySelector('input');
-        $("#inputFile").change(function(){
+        $("#inputFile").change(function () {
             $('#droptext').text('PDF-Datei akzeptiert! Bewerbung kann abgeschickt werden');
-            $('#droptext').css('font-size','large');
-            $('.dropContainer-text').css('color','#32cd32');
+            $('#droptext').css('font-size', 'large');
+            $('.dropContainer-text').css('color', '#32cd32');
         });
+
         function handleFileSelect(evt) {
             evt.stopPropagation();
             evt.preventDefault();
@@ -120,24 +147,29 @@
             var files = evt.dataTransfer.files;
             fileInput.files = files;
             $('#droptext').text('PDF-Datei akzeptiert! Bewerbung kann abgeschickt werden');
-            $('#droptext').css('font-size','large');
-            $('.dropContainer-text').css('color','#32cd32');
+            $('#droptext').css('font-size', 'large');
+            $('.dropContainer-text').css('color', '#32cd32');
 
 
         }
+
         function handleDragOver(evt) {
             evt.stopPropagation();
             evt.preventDefault();
             evt.dataTransfer.dropEffect = 'copy';
             console.log("HI"); // Explicitly show this is a copy.
         }
+
         var dropZone = document.getElementById('dropContainer');
         dropZone.addEventListener('dragover', handleDragOver, false);
         dropZone.addEventListener('drop', handleFileSelect, false);
 
     }
 
-
+    function deleteCheck() {
+        console.log("HI");
+       check.show();
+    }
 
 
     /*]]>*/
