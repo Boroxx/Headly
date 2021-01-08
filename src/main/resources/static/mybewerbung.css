@@ -1,6 +1,55 @@
-
+body{
+    background-color: gainsboro;
+}
 h3{
     padding: 2rem 2rem 2rem 2rem;
+}
+
+.jobs{
+
+    border: 1px solid #C1C1C1;
+    margin: 0.8rem;
+    background-color: white;
+
+}
+
+.lebenslauf{
+    background-color: white;
+    border: 1px solid #C1C1C1;
+    margin: 0.8rem;
+}
+
+.lebenslauf-liste{
+    margin: 0.8rem;
+}
+.dropContainer{
+    border: 1px dashed black;
+
+}
+
+.dropContainer:hover{
+    border: 2px dashed limegreen;
+    color: limegreen!important;
+
+
+}
+
+.dropContainer-text{
+    padding: 5% 0 5% 0;
+    text-align: center;
+}
+.dropContainer-text:hover{
+
+    text-align: center;
+    color: limegreen!important;
+}
+
+.is-dragover {
+    background-color: grey;
+}
+
+.upload{
+    padding:1rem;
 }
 @media (max-width: 575.98px) {
 
@@ -10,6 +59,8 @@ h3{
     }
 
     .jobs{
+
+        border: 1px solid #C1C1C1;
 
     }
 

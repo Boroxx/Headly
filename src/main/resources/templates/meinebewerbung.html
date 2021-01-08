@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/mybewerbung.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Marvel&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <title>Meine Bewerbungen</title>
 </head>
 
@@ -17,15 +18,15 @@
 
 <div th:replace="fragmentheader :: header">...</div>
 
-<div class="d-flex justify-content-between tool">
 
-    <h3>Hier können Sie in den Status ihrer Bewerbung einsehen. Falls noch keine Bewerbung vorhanden ist, schauen Sie in unserer <a style="color:darkseagreen" href="/search">Jobsuche</a> nach Stellen. </h3>
-
-</div>
 
 
 <div class="jobs">
+    <div class="d-flex justify-content-between tool">
 
+        <h3>Hier können Sie in den Status ihrer Bewerbung einsehen. Falls noch keine Bewerbung vorhanden ist, schauen Sie in unserer <a style="color:darkseagreen" href="/search">Jobsuche</a> nach Stellen. </h3>
+
+    </div>
         <div class="row">
 
 
@@ -47,12 +48,100 @@
                 </div>
 
             </div>
-        </div>
-
 </div>
 
+<div class="lebenslauf">
+
+    <div class="lebenslauf-liste" th:if="${isUploaded}">
+        <h2> Hier finden Sie ihren Lebenslauf!</h2>
+        <h2> <a style="color:darkseagreen; padding:2rem;" href="/applicationpdf"> - Lebenslauf </a> </h2>
+    </div>
 
 
+
+
+
+
+        <form method="post" th:action="@{'/myApplication'}" th:object="${lebenslaufDto}" class="upload" enctype="multipart/form-data">
+
+            <div class="d-flex justify-content-between tool">
+
+                <h3>Laden Sie hier ihren Lebenslauf hoch. So können wir Ihnen, auf Sie individuell angepasste Jobvorschläge,  liefern! </h3>
+
+            </div>
+            <div class="form-row formhide">
+                <div class="form-group col-md-12 "  >
+                    <p>Laden Sie hier ihren Lebenslauf per <b>Drag and Drop</b> hoch! (oder klicken Sie auf <b>Auswählen</b>.)</p>
+
+                    <div class="dropContainer" id="dropContainer">
+
+                        <div class="dropContainer-text">
+                            <p><i class="icon fas fa-4x fa-file-pdf"></i></p>
+                            <p id="droptext">Drop Here</p>
+                        </div>
+
+                    </div>
+
+                    <label  id="inputFileLabel" class="btn btn-dark my-3" for="inputFile">Auswählen
+                        <input type="file" style="display: none" class="form-control" id="inputFile" th:field="*{multipartFile}" placeholder="max@mustermann.de">
+                    </label>
+                </div>
+
+            </div>
+
+            <button type="submit"  class="btn btn-outline-dark">Lebenslauf hochladen</button>
+        </form>
+
+    </div>
+
+
+
+<script th:inline="javascript">
+    /*<![CDATA[*/
+
+    var uploaded = /*[[${isUploaded}]]*/ 'false';
+
+
+    console.log(uploaded)
+
+    if(uploaded){
+        $('form').hide();
+    }else{
+        let fileInput = document.querySelector('input');
+        $("#inputFile").change(function(){
+            $('#droptext').text('PDF-Datei akzeptiert! Bewerbung kann abgeschickt werden');
+            $('#droptext').css('font-size','large');
+            $('.dropContainer-text').css('color','#32cd32');
+        });
+        function handleFileSelect(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+
+            var files = evt.dataTransfer.files;
+            fileInput.files = files;
+            $('#droptext').text('PDF-Datei akzeptiert! Bewerbung kann abgeschickt werden');
+            $('#droptext').css('font-size','large');
+            $('.dropContainer-text').css('color','#32cd32');
+
+
+        }
+        function handleDragOver(evt) {
+            evt.stopPropagation();
+            evt.preventDefault();
+            evt.dataTransfer.dropEffect = 'copy';
+            console.log("HI"); // Explicitly show this is a copy.
+        }
+        var dropZone = document.getElementById('dropContainer');
+        dropZone.addEventListener('dragover', handleDragOver, false);
+        dropZone.addEventListener('drop', handleFileSelect, false);
+
+    }
+
+
+
+
+    /*]]>*/
+</script>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
