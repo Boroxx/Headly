@@ -5,8 +5,9 @@ import com.headly.Headly.dto.MailDto;
 import com.headly.Headly.models.User;
 import com.headly.Headly.services.MailSenderService;
 import com.headly.Headly.services.RegistrationService;
-import org.apache.commons.lang3.RandomStringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.apache.commons.lang3.RandomStringUtils;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.security.core.Authentication;

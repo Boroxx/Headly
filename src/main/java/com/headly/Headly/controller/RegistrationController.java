@@ -6,7 +6,7 @@ import com.headly.Headly.models.User;
 import com.headly.Headly.repos.ConformationTokenRepository;
 import com.headly.Headly.services.MailSenderService;
 import com.headly.Headly.services.RegistrationService;
-import org.apache.commons.lang3.RandomStringUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
