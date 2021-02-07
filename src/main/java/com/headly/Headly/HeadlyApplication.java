@@ -33,8 +33,8 @@ public class HeadlyApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-
 		/*
+
 
 			User applicant = User.builder().role("BEWERBER").city("moenchengladbach").firstname("Boris").lastname("Tenelsen").email("tenelsen.boris@web.de").housenumber("40")
 							.phonenumber("0151123456").street("Hoemenstrasse").zipcode("41199").password("dennis").build();
@@ -50,7 +50,9 @@ public class HeadlyApplication implements CommandLineRunner {
 				registrationService.enableUser(company);
 
 			}
-*/
+
+		 */
+
 
 
 		Profession profession1 = new Profession(1,"Bauwesen");

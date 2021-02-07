@@ -7,4 +7,5 @@ public interface UploadLebenslaufRepository extends JpaRepository<Lebenslauf,Lon
 
     Lebenslauf findByUserId(int id);
     void deleteById(long id);
+    Lebenslauf findById(long id);
 }

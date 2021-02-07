@@ -42,6 +42,22 @@
           </table>
     </div>
 
+    <div>
+        <table>
+            <thead>
+            <tr>
+                <th> Lebenslauflink </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="ll : ${lebenslaufList}">
+                <td><a th:href="@{'/lebenslauf/' + ${ll.id}}" class="btn btn-dark">Zum Lebenslauf</a> </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
     
 </body>
 </html>

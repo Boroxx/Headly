@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 public class UploadLebenslaufService {
@@ -47,7 +48,14 @@ public class UploadLebenslaufService {
 
     }
 
+    public Lebenslauf findById(long id){
+        return uploadLebenslaufRepository.findById(id);
+    }
     public Lebenslauf findLebenslaufByUserId(User user){
         return uploadLebenslaufRepository.findByUserId(user.getId());
+    }
+
+    public List<Lebenslauf> findAll(){
+        return uploadLebenslaufRepository.findAll();
     }
 }
